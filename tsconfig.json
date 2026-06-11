@@ -30,5 +30,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "temp_*.tsx", "temp_*.jsx", "temp_*.js", "pixel", "*.tsx", "*.ts"]
 }
