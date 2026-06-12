@@ -69,7 +69,7 @@ export async function askMascot(question: string, history: ChatMessage[] = []): 
   ) {
     return 'Berikut adalah keahlian teknis (**Technical Arsenal**) yang dikuasai Rayhan:\n\n' +
       '• 🌐 **Frontend**: React, Next.js, TypeScript, Tailwind CSS\n' +
-      '• 🎬 **Motion & 3D**: Framer Motion, GSAP, Three.js, WebGL\n' +
+      '• 🤖 **AI & Automation**: NVIDIA NIM, OpenAI API, Prompt Engineering, AI Chatbots\n' +
       '• 🎨 **Graphic Design**: Adobe Illustrator, Adobe Photoshop, CorelDraw, Canva\n' +
       '• 🏗️ **Architecture**: System Design, Performance, Accessibility, SEO\n\n' +
       'Rayhan sangat fokus pada perpaduan estetika visual dan performa yang mulus! 💻🔥';
@@ -79,11 +79,9 @@ export async function askMascot(question: string, history: ChatMessage[] = []): 
   if (
     matches(cleanQuestion, ['project', 'proyek', 'portofolio', 'karya', 'buat apa', 'bikin apa', 'hasil', 'work', 'featured'])
   ) {
-    return 'Rayhan telah mengerjakan lebih dari **40+ proyek**. Beberapa proyek pilihan yang ditampilkan di portofolio ini adalah:\n\n' +
+    return 'Rayhan telah mengerjakan beberapa proyek pilihan. Beberapa proyek pilihan yang ditampilkan di portofolio ini adalah:\n\n' +
       '1. 🛒 **E-Commerce Reimagined** (Fullstack development dengan desain modern)\n' +
-      '2. 📊 **Fintech Dashboard** (Frontend interaktif untuk visualisasi data keuangan)\n' +
-      '3. 🌐 **Web3 NFT Platform** (Desain UI/UX & pengembangan Frontend)\n' +
-      '4. ✍️ **AI Writing Assistant** (Aplikasi Fullstack asisten penulisan berbasis AI)\n\n' +
+      '2. 📊 **Fintech Dashboard** (Frontend interaktif untuk visualisasi data keuangan)\n\n' +
       'Kamu bisa melihat kartunya langsung di bagian **Featured Work** pada website ini! 🚀';
   }
 

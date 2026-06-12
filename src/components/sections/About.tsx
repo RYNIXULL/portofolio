@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import FadeIn from "@/components/animations/FadeIn";
+import { Briefcase, Code2, Award } from "lucide-react";
 
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -64,7 +65,7 @@ export default function About() {
               <div className="space-y-6 text-lg md:text-xl text-foreground/70 font-light leading-relaxed">
                 <p>
                   Hello everyone,<br />
-                  I&apos;m M. Rayhan Zulkarnain, an Informatics Management student from State Polytechnic Of Lampung, currently studying software development. As a true beginner, I enjoy exploring new technologies and leveraging AI to create smarter and more efficient digital solutions.
+                  I&apos;m M. Rayhan Zulkarnain, an Informatics Management student from State Polytechnic Of Lampung. As a true beginner, I enjoy exploring new technologies and leveraging AI to create smarter and more efficient digital solutions.
                 </p>
                 <p>
                   I specialize in building interactive, high‑performance web applications that blur the line between design and technology. My approach is rooted in the belief that digital experiences should be as emotionally resonant as they are functionally flawless. With a deep understanding of modern frontend architectures and WebGL, I craft interfaces that feel alive prioritizing fluid motion, precise typography, and uncompromising performance.
@@ -73,20 +74,39 @@ export default function About() {
             </FadeIn>
 
             <FadeIn delay={0.6}>
-              <div className="mt-12 flex gap-8">
-                <div>
-                  <h4 className="text-4xl font-bold text-foreground mb-2">5+</h4>
-                  <p className="text-sm text-foreground/50 uppercase tracking-widest">Years Exp</p>
+              <div className="mt-12 flex flex-wrap gap-6 md:gap-10">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center text-accent-cyan">
+                    <Briefcase size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">1+</h4>
+                    <p className="text-xs text-foreground/50 uppercase tracking-widest">Years Exp</p>
+                  </div>
                 </div>
-                <div className="w-[1px] bg-border" />
-                <div>
-                  <h4 className="text-4xl font-bold text-foreground mb-2">40+</h4>
-                  <p className="text-sm text-foreground/50 uppercase tracking-widest">Projects</p>
+                
+                <div className="w-[1px] bg-border self-stretch hidden sm:block" />
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-accent-purple/10 border border-accent-purple/20 flex items-center justify-center text-accent-purple">
+                    <Code2 size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">2+</h4>
+                    <p className="text-xs text-foreground/50 uppercase tracking-widest">Projects</p>
+                  </div>
                 </div>
-                <div className="w-[1px] bg-border" />
-                <div>
-                  <h4 className="text-4xl font-bold text-foreground mb-2">3</h4>
-                  <p className="text-sm text-foreground/50 uppercase tracking-widest">Awards</p>
+                
+                <div className="w-[1px] bg-border self-stretch hidden sm:block" />
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center text-accent-cyan">
+                    <Award size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">5+</h4>
+                    <p className="text-xs text-foreground/50 uppercase tracking-widest">Certifications</p>
+                  </div>
                 </div>
               </div>
             </FadeIn>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { MeshDistortMaterial, Icosahedron } from "@react-three/drei";
 import * as THREE from "three";
@@ -9,6 +9,17 @@ export default function HeroObject() {
   const meshRef = useRef<THREE.Mesh>(null);
   const wireframeRef = useRef<THREE.Mesh>(null);
   const groupRef = useRef<THREE.Group>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useFrame((state) => {
     if (!groupRef.current) return;
@@ -30,7 +41,7 @@ export default function HeroObject() {
   });
 
   return (
-    <group ref={groupRef}>
+    <group ref={groupRef} scale={isMobile ? 0.65 : 1.0}>
       {/* Solid Core */}
       <Icosahedron ref={meshRef} args={[2, 4]} scale={1.2}>
         <MeshDistortMaterial

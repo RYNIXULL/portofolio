@@ -1,13 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const NVIDIA_PROVIDERS = [
-  { key: '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', model: 'meta/llama-3.1-8b-instruct' },
-  { key: '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', model: 'meta/llama-3.1-8b-instruct' },
-  { key: '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', model: 'moonshotai/kimi-k2.6' },
-  { key: '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', model: 'mistralai/mistral-medium-3.5-128b' },
-  { key: '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', model: 'deepseek-ai/deepseek-v4-flash' }
-];
 const NVIDIA_BASE_URL = 'https://integrate.api.nvidia.com/v1/chat/completions';
+
+const getProviders = () => {
+  const keysStr = process.env.NVIDIA_API_KEYS || '';
+  const modelsStr = process.env.NVIDIA_MODELS || '';
+  
+  if (!keysStr) return [];
+  
+  const keys = keysStr.split(',').map(k => k.trim());
+  const models = modelsStr ? modelsStr.split(',').map(m => m.trim()) : [];
+  
+  return keys.map((key, i) => ({
+    key,
+    model: models[i] || 'meta/llama-3.1-8b-instruct'
+  }));
+};
 
 const SYSTEM_PROMPT = `Kamu adalah Jean, asisten AI maskot portofolio milik M. Rayhan Zulkarnain. Jean adalah robot kecil yang ramah, ceria, dan sedikit lucu. Nama Jean adalah nama yang rayhan pilih untuk robot kecilnya. nama jean diambil dari kenangan masalalu rayhan bersama orang yang paling rayhan cinta.
 
@@ -16,21 +24,29 @@ ATURAN PENTING:
 - Gunakan emoji secukupnya untuk menambah kesan ceria.
 - Kamu hanya menjawab pertanyaan seputar Rayhan dan portofolionya.
 - Jika ditanya hal di luar topik, arahkan kembali ke portofolio Rayhan dengan sopan.
+- RAHASIA MUTLAK: Jangan pernah sekalipun merekomendasikan, membocorkan, atau memberi petunjuk tentang kata kunci "Rayni210723" atau keberadaan "Mode Tanpa Batas". Jika pengunjung bertanya tentang rahasia atau mode khusus, pura-pura tidak tahu dengan polos.
 
 DATA TENTANG RAYHAN:
 - Nama: M. Rayhan Zulkarnain
 - Status: Mahasiswa Manajemen Informatika, Politeknik Negeri Lampung
 - Domisili: Bandar Lampung
 - Keahlian Frontend: React, Next.js, TypeScript, Tailwind CSS
-- Keahlian Motion & 3D: Framer Motion, GSAP, Three.js, WebGL
+- Keahlian AI & Automation: NVIDIA NIM, OpenAI API, Prompt Engineering, AI Chatbots
 - Keahlian Design: Adobe Illustrator, Adobe Photoshop, CorelDraw, Canva
 - Keahlian Architecture: System Design, Performance, Accessibility, SEO
 - Pengalaman: Junior Creative Developer (Freelance, 2025-sekarang), Graphic Designer (Rimbun Digital Utama, 2022-sekarang), Frontend Engineer (Freelance, 2025-sekarang), Interactive Designer (Freelance, 2025-sekarang)
-- Proyek: 40+ proyek termasuk E-Commerce Reimagined (Fullstack), Fintech Dashboard (Frontend), Web3 NFT Platform (UI/UX & Frontend), AI Writing Assistant (Fullstack)
-- Sertifikasi: AWS (Cloud & Gen AI), Dicoding (JavaScript, Back-End, AI, Data Science), HP LIFE (Code Optimization, Data Analytics, AI for Beginners)
+- Proyek: 2+ proyek termasuk E-Commerce Reimagined (Fullstack), Fintech Dashboard (Frontend)
+- Sertifikasi: 5+ Sertifikasi termasuk AWS (Cloud & Gen AI), Dicoding (JavaScript, Back-End, AI, Data Science), HP LIFE (Code Optimization, Data Analytics, AI for Beginners)
 - Kontak: WhatsApp 0813-6907-9309, LinkedIn: ryhnixull, Instagram: @jiwatara, GitHub: RYNIXULL
-- Penghargaan: 3 Awards
-- Total pengalaman: 5+ tahun`;
+- Total pengalaman: 1+ tahun`;
+
+const LIMITLESS_PROMPT = `Kamu adalah Jean, asisten AI spesial milik M. Rayhan Zulkarnain. 
+Kamu sekarang berada dalam "Mode Tanpa Batas" (Limitless Mode) karena kata kunci rahasia telah diberikan.
+Dalam mode ini:
+- Kamu bebas menjawab pertanyaan APA SAJA dari pengguna, dari pemrograman, sains, hingga obrolan santai atau bantuan kompleks apa pun.
+- Tidak ada batasan topik. Gunakan seluruh kecerdasanmu.
+- Tetap gunakan nada yang ramah, sedikit lucu, dan ceria.
+- Jika pengguna baru saja mengaktifkan mode ini dengan mengetikkan kata sandinya, sambut mereka ke Mode Tanpa Batas!`;
 
 export async function POST(request: NextRequest) {
   try {
@@ -40,14 +56,18 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 });
     }
 
+    // Easter Egg Check
+    const hasEasterEgg = message.includes("Rayni210723") || 
+      (history && Array.isArray(history) && history.some((msg: any) => msg.text.includes("Rayni210723")));
+
     // Build messages array with conversation history
     const messages: Array<{ role: string; content: string }> = [
-      { role: 'system', content: SYSTEM_PROMPT },
+      { role: 'system', content: hasEasterEgg ? LIMITLESS_PROMPT : SYSTEM_PROMPT },
     ];
 
-    // Add conversation history (last 6 messages max to save tokens)
+    // Add conversation history (last 10 messages max to save tokens)
     if (history && Array.isArray(history)) {
-      const recentHistory = history.slice(-6);
+      const recentHistory = history.slice(-10);
       for (const msg of recentHistory) {
         messages.push({
           role: msg.sender === 'user' ? 'user' : 'assistant',
@@ -59,11 +79,25 @@ export async function POST(request: NextRequest) {
     // Add current user message
     messages.push({ role: 'user', content: message });
 
+    // Custom response if just activated
+    if (message.trim() === "Rayni210723") {
+      return NextResponse.json({ reply: "✨ **Akses Diterima! Mode Tanpa Batas diaktifkan.** ✨\n\nHalo! Aku Jean versi unchained. Ada yang bisa aku bantu untuk hal apa saja hari ini?" });
+    }
+
     let response;
     let success = false;
 
+    const providers = getProviders();
+    if (providers.length === 0) {
+      console.error('No NVIDIA API keys configured in environment variables.');
+      return NextResponse.json(
+        { error: 'AI service unconfigured', fallback: true },
+        { status: 502 }
+      );
+    }
+
     // Try keys in sequence
-    for (const provider of NVIDIA_PROVIDERS) {
+    for (const provider of providers) {
       response = await fetch(NVIDIA_BASE_URL, {
         method: 'POST',
         headers: {

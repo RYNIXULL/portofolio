@@ -3,7 +3,6 @@
 import { Canvas } from "@react-three/fiber";
 import { Environment, Float } from "@react-three/drei";
 import HeroObject from "./HeroObject";
-import Particles from "./Particles";
 import { Suspense } from "react";
 
 export default function Scene() {
@@ -24,8 +23,6 @@ export default function Scene() {
           <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
             <HeroObject />
           </Float>
-          
-          <Particles count={200} />
         </Suspense>
       </Canvas>
     </div>

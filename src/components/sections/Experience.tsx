@@ -50,7 +50,7 @@ export default function Experience() {
               <div
                 className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-12 group rounded-2xl p-6 md:p-8 border border-white/15 transition-all duration-300 hover:border-accent-cyan/50 hover:scale-[1.015] hover:-translate-y-1 bg-white/[0.06] hover:bg-white/[0.10]"
               >
-                <div className="col-span-1 text-foreground/70 font-mono tracking-widest text-sm pt-1 group-hover:text-accent-cyan transition-colors">
+                <div className="col-span-1 text-foreground/70 font-bold text-lg pt-1 group-hover:text-accent-cyan transition-colors">
                   {exp.year}
                 </div>
                 <div className="col-span-3">

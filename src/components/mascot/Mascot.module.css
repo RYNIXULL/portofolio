@@ -20,10 +20,10 @@
 
 @media (max-width: 767px) {
   .wrapper {
-    bottom: 16px;
-    right: 16px;
-    width: 44px;
-    height: 56px;
+    bottom: 24px;
+    right: 20px;
+    width: 48px;
+    height: 60px;
   }
 }
 

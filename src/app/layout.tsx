@@ -7,6 +7,8 @@ import CustomCursor from "@/components/ui/CustomCursor";
 import Navigation from "@/components/ui/Navigation";
 import { Mascot } from "@/components/mascot";
 
+import GalaxyBackground from "@/components/3d/GalaxyBackground";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -30,7 +32,7 @@ export default function RootLayout({
           <CustomCursor />
           <Navigation />
           <Mascot />
-          <div className="stars" />
+          <GalaxyBackground />
           <div className="galaxy-aurora galaxy-aurora-1" />
           <div className="galaxy-aurora galaxy-aurora-2" />
           <div className="galaxy-aurora galaxy-aurora-3" />

@@ -56,7 +56,7 @@ export default function Navigation() {
       transition={{ duration: 0.8, delay: 2.5, ease: [0.76, 0, 0.24, 1] }} // wait for loader
       className={cn(
         "fixed top-0 left-0 right-0 z-[90] transition-colors duration-300",
-        isScrolled ? "bg-background/80 backdrop-blur-md border-b border-border/50" : "bg-transparent"
+        isScrolled ? "bg-background/40 backdrop-blur-lg border-b border-border/20" : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">

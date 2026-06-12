@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -12,6 +12,13 @@ interface HoverTiltCardProps {
 
 export default function HoverTiltCard({ children, className, tiltAmount = 15 }: HoverTiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsMobile(window.matchMedia("(pointer: coarse)").matches);
+    }
+  }, []);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -19,8 +26,9 @@ export default function HoverTiltCard({ children, className, tiltAmount = 15 }: 
   const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
   const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [tiltAmount, -tiltAmount]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-tiltAmount, tiltAmount]);
+  const currentTilt = isMobile ? 0 : tiltAmount;
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [currentTilt, -currentTilt]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-currentTilt, currentTilt]);
 
   // Spotlight coordinates for interactive glass sheen
   const spotlightX = useMotionValue(0);
@@ -56,6 +64,85 @@ export default function HoverTiltCard({ children, className, tiltAmount = 15 }: 
     y.set(0);
   };
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    let initialBeta: number | null = null;
+    let initialGamma: number | null = null;
+
+    const handleDeviceOrientation = (e: DeviceOrientationEvent) => {
+      const beta = e.beta;
+      const gamma = e.gamma;
+
+      if (beta === null || gamma === null) return;
+
+      // Calibrate on first orientation event
+      if (initialBeta === null || initialGamma === null) {
+        initialBeta = beta;
+        initialGamma = gamma;
+        return;
+      }
+
+      // Calculate relative delta from calibrated baseline position
+      const deltaBeta = beta - initialBeta;
+      const deltaGamma = gamma - initialGamma;
+
+      // Limit response angles to range [-0.5, 0.5]
+      // Max tilt delta we care about is 15 degrees
+      const xVal = Math.min(Math.max(deltaGamma / 15, -0.5), 0.5);
+      const yVal = Math.min(Math.max(deltaBeta / 15, -0.5), 0.5);
+
+      x.set(xVal);
+      y.set(yVal);
+
+      if (ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        spotlightX.set(rect.width / 2 + xVal * rect.width);
+        spotlightY.set(rect.height / 2 + yVal * rect.height);
+      }
+    };
+
+    // Detect if this is a mobile/touch pointer device
+    const isMobile = window.matchMedia("(pointer: coarse)").matches;
+
+    if (isMobile) {
+      const DeviceOrientation = DeviceOrientationEvent as any;
+      
+      // Android / non-iOS or already granted orientation
+      if (typeof DeviceOrientation === "undefined" || typeof DeviceOrientation.requestPermission !== "function") {
+        window.addEventListener("deviceorientation", handleDeviceOrientation);
+      } else {
+        // iOS requires user gesture
+        let granted = false;
+        const requestPermission = async () => {
+          if (granted) return;
+          try {
+            const res = await DeviceOrientation.requestPermission();
+            if (res === "granted") {
+              granted = true;
+              window.addEventListener("deviceorientation", handleDeviceOrientation);
+              cleanupGestures();
+            }
+          } catch (err) {
+            console.error("Orientation permission rejected", err);
+          }
+        };
+
+        const cleanupGestures = () => {
+          window.removeEventListener("touchstart", requestPermission);
+          window.removeEventListener("click", requestPermission);
+        };
+
+        window.addEventListener("touchstart", requestPermission, { passive: true });
+        window.addEventListener("click", requestPermission, { passive: true });
+      }
+    }
+
+    return () => {
+      window.removeEventListener("deviceorientation", handleDeviceOrientation);
+    };
+  }, [x, y, spotlightX, spotlightY]);
+
   return (
     <motion.div
       ref={ref}
@@ -77,7 +164,10 @@ export default function HoverTiltCard({ children, className, tiltAmount = 15 }: 
       >
         {children}
         <motion.div
-          className="absolute inset-0 pointer-events-none rounded-xl opacity-0 group-hover/tilt:opacity-100 transition-opacity duration-300 z-30"
+          className={cn(
+            "absolute inset-0 pointer-events-none rounded-[inherit] transition-opacity duration-300 z-30",
+            isMobile ? "opacity-100" : "opacity-0 group-hover/tilt:opacity-100"
+          )}
           style={{
             background: spotlightBg,
           }}

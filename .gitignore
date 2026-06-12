@@ -36,6 +36,17 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local scratch / test files
+/src/faster.js
+/src/faster2.js
+/src/fix.js
+/src/remerge.js
+/src/split.js
+/test.html
+/test_reverse.jsx
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel

@@ -17,18 +17,6 @@ const projects = [
     image: "/Fintech Dashboard.png",
     color: "from-accent-purple/20 to-transparent",
   },
-  {
-    title: "Web3 NFT Platform",
-    category: "UI/UX & Frontend",
-    image: "",
-    color: "from-blue-500/20 to-transparent",
-  },
-  {
-    title: "AI Writing Assistant",
-    category: "Fullstack",
-    image: "",
-    color: "from-emerald-500/20 to-transparent",
-  },
 ];
 
 export default function Projects() {

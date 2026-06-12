@@ -428,16 +428,16 @@ export const Mascot: React.FC = () => {
             <span>{speechBubble.text}</span>
           </div>
         )}
-
-        {/* AI Chat drawer */}
-        <MascotChat
-          isOpen={isChatOpen}
-          onClose={() => setIsChatOpen(false)}
-          triggerTyping={mascotState.triggerTyping}
-          stopTyping={mascotState.stopTyping}
-          triggerHappy={mascotState.triggerHappy}
-        />
       </div>
+
+      {/* AI Chat drawer - Moved outside wrapper to fix fixed-position containing block bug */}
+      <MascotChat
+        isOpen={isChatOpen}
+        onClose={() => setIsChatOpen(false)}
+        triggerTyping={mascotState.triggerTyping}
+        stopTyping={mascotState.stopTyping}
+        triggerHappy={mascotState.triggerHappy}
+      />
     </>
   )
 }
