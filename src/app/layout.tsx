@@ -15,8 +15,21 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "M Rayhan Zulkarnain",
-  description: "A futuristic, elegant, dark-mode-first portfolio website.",
+  metadataBase: new URL('https://www.rayhanzulkarnain.dev'),
+  title: {
+    default: "M Rayhan Zulkarnain | Developer",
+    template: "%s | M Rayhan Zulkarnain"
+  },
+  description: "Portfolio of M Rayhan Zulkarnain, a Developer specializing in frontend, fullstack, and highly interactive web experiences.",
+  keywords: ["M Rayhan Zulkarnain", "Rayhan Zulkarnain", "Developer", "Frontend Engineer", "Fullstack Developer", "Portfolio", "Indonesia", "Web Developer"],
+  openGraph: {
+    title: "M Rayhan Zulkarnain | Developer",
+    description: "Portfolio of M Rayhan Zulkarnain, a Developer specializing in frontend, fullstack, and highly interactive web experiences.",
+    url: 'https://www.rayhanzulkarnain.dev',
+    siteName: 'M Rayhan Zulkarnain Portfolio',
+    locale: 'id_ID',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
