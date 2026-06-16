@@ -4,6 +4,12 @@ import FadeIn from "@/components/animations/FadeIn";
 
 const experiences = [
   {
+    year: "2023 - Present",
+    role: "Developer",
+    company: "Kaesang Cendawan",
+    description: "Developing and maintaining custom e-commerce web applications, ensuring high performance and a seamless user experience.",
+  },
+  {
     year: "2025 - Present",
     role: "Junior Creative Developer",
     company: "Freelance",

@@ -10,6 +10,7 @@ const projects = [
     category: "Fullstack",
     image: "/E-Commerce Reimagined.png",
     color: "from-accent-cyan/20 to-transparent",
+    link: "https://kaesang-cendawan-web.vercel.app/",
   },
   {
     title: "Fintech Dashboard",
@@ -38,7 +39,10 @@ export default function Projects() {
             key={idx} 
             className="project-card w-[85vw] md:w-[60vw] flex-shrink-0 snap-center h-[50vh] md:h-[70vh] relative"
           >
-            <div className="w-full h-full relative group rounded-2xl overflow-hidden cursor-pointer">
+            <div 
+              className="w-full h-full relative group rounded-2xl overflow-hidden cursor-pointer"
+              onClick={() => project.link ? window.open(project.link, '_blank', 'noopener,noreferrer') : undefined}
+            >
               {/* Image / Fallback background */}
               {project.image ? (
                 <div
