@@ -18,6 +18,13 @@ const projects = [
     image: "/Fintech Dashboard.png",
     color: "from-accent-purple/20 to-transparent",
   },
+  {
+    title: "Galaxy Hand Gesture",
+    category: "Interactive Web",
+    image: "/Galaxy Hand Gesture.png",
+    color: "from-accent-cyan/20 to-transparent",
+    link: "https://galaxy-hand-gesture.vercel.app/",
+  },
 ];
 
 export default function Projects() {
