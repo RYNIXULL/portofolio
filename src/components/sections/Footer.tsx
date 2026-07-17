@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Github, Linkedin, Instagram, Mail, ArrowUp } from "lucide-react";
+import { Mail, ArrowUp } from "lucide-react";
 import FadeIn from "@/components/animations/FadeIn";
 
 export default function Footer() {
@@ -26,13 +26,24 @@ export default function Footer() {
           {/* Social Links */}
           <FadeIn delay={0.2} direction="up" className="order-1 md:order-2 flex items-center gap-5">
             <a href="https://github.com/RYNIXULL" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-accent-cyan transition-colors" aria-label="GitHub">
-              <Github size={20} />
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.6a5.4 5.4 0 0 0-1.5-3.8 5.4 5.4 0 0 0-.15-3.8s-1.1-.35-3.5 1.3a11.6 11.6 0 0 0-6 0C5.35 1.5 4.25 1.85 4.25 1.85a5.4 5.4 0 0 0-.15 3.8A5.4 5.4 0 0 0 2.6 10.6c0 5.1 3 6.26 6 6.6a4.8 4.8 0 0 0-1 3.24v4"/>
+                <path d="M5 21c-3.1 0-5-2-5-2"/>
+              </svg>
             </a>
-            <a href="https://linkedin.com/in/m-rayhan-zulkarnain" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-accent-cyan transition-colors" aria-label="LinkedIn">
-              <Linkedin size={20} />
+            <a href="https://linkedin.com/in/ryhnixull" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-accent-cyan transition-colors" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect width="4" height="12" x="2" y="9"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
             </a>
-            <a href="https://instagram.com/rayhanzulkarnain_" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-accent-cyan transition-colors" aria-label="Instagram">
-              <Instagram size={20} />
+            <a href="https://instagram.com/jiwatara" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-accent-cyan transition-colors" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+              </svg>
             </a>
             <a href="mailto:rayhanzulkarnain@example.com" className="text-foreground/60 hover:text-accent-cyan transition-colors" aria-label="Email">
               <Mail size={20} />
