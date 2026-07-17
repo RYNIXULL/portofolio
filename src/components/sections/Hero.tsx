@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import StaggerText from "@/components/animations/StaggerText";
 import FadeIn from "@/components/animations/FadeIn";
 import { MagicButton } from "@/components/ui/MagicButton";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import HoverTiltCard from "@/components/animations/HoverTiltCard";
 
 // Lazy load 3D scene for performance
@@ -40,7 +40,7 @@ export default function Hero() {
           </FadeIn>
 
           <FadeIn delay={3.4} direction="up">
-            <div className="pointer-events-auto flex justify-center">
+            <div className="pointer-events-auto flex flex-col sm:flex-row justify-center items-center gap-4">
               <HoverTiltCard tiltAmount={10} className="rounded-full inline-block">
                 <MagicButton onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}>
                   <span className="text-base">Explore My Work</span>
@@ -48,6 +48,20 @@ export default function Hero() {
                     <ArrowRight size={18} />
                   </span>
                 </MagicButton>
+              </HoverTiltCard>
+
+              <HoverTiltCard tiltAmount={10} className="rounded-full inline-block">
+                <a 
+                  href="/CV-MRayhanZulkarnain.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="relative inline-flex h-14 items-center justify-center rounded-full px-8 py-1 text-sm font-medium text-foreground gap-3 transition-all duration-300 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/40 shadow-sm group"
+                >
+                  <span className="text-base">Download CV</span>
+                  <span className="group-hover:-translate-y-1 transition-transform">
+                    <Download size={18} />
+                  </span>
+                </a>
               </HoverTiltCard>
             </div>
           </FadeIn>
