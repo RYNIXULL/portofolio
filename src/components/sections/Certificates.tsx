@@ -14,6 +14,7 @@ const certificates = [
   { title: "Dasar Cloud & Gen AI di AWS", file: "sertif modul 2.pdf", issuer: "AWS" },
   { title: "Dasar Pemrograman JavaScript", file: "sertif modul 3.pdf", issuer: "Dicoding" },
   { title: "Back-End Pemula dengan JavaScript", file: "sertif modul 4.pdf", issuer: "Dicoding" },
+  { title: "Google Certificate", file: "GGLG26070264.pdf", issuer: "Google" },
 ];
 
 export default function Certificates() {
