@@ -69,21 +69,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div 
-        className="relative mt-auto mx-auto flex flex-col items-center gap-2 pointer-events-none z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 4, duration: 1 }}
-      >
-        <div className="w-[1px] h-12 bg-border relative overflow-hidden">
-          <motion.div 
-            className="absolute top-0 left-0 w-full h-1/2 bg-accent-cyan"
-            animate={{ top: ["-50%", "150%"] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-          />
-        </div>
-      </motion.div>
     </section>
   );
 }
