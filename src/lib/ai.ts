@@ -81,7 +81,9 @@ export async function askMascot(question: string, history: ChatMessage[] = []): 
   ) {
     return 'Rayhan telah mengerjakan beberapa proyek pilihan. Beberapa proyek pilihan yang ditampilkan di portofolio ini adalah:\n\n' +
       '1. 🛒 **E-Commerce Reimagined** (Fullstack development dengan desain modern)\n' +
-      '2. 📊 **Fintech Dashboard** (Frontend interaktif untuk visualisasi data keuangan)\n\n' +
+      '2. 📊 **Fintech Dashboard** (Frontend interaktif untuk visualisasi data keuangan)\n' +
+      '3. ⚔️ **COMMBAT** (Real-Time Gamified Quiz Platform dengan arsitektur Client-Server modern)\n' +
+      '4. 🖨️ **Kasir Pintar** (SmartPrint POS & Production Management untuk bisnis percetakan)\n\n' +
       'Kamu bisa melihat kartunya langsung di bagian **Featured Work** pada website ini! 🚀';
   }
 
@@ -115,7 +117,7 @@ export async function askMascot(question: string, history: ChatMessage[] = []): 
     return 'Kamu bisa langsung menghubungi atau terhubung dengan Rayhan melalui saluran berikut:\n\n' +
       '• 💬 **WhatsApp**: [Say Hello (0813-6907-9309)](https://wa.me/6281369079309?text=Halo!%20Saya%20tertarik%20untuk%20berkolaborasi%20dengan%20kamu.)\n' +
       '• 👔 **LinkedIn**: [LinkedIn Rayhan](https://www.linkedin.com/in/ryhnixull)\n' +
-      '• 📸 **Instagram**: [@jiwatara](https://www.instagram.com/jiwatara/)\n' +
+      '• 📸 **Instagram**: [@ryhnxull](https://www.instagram.com/ryhnxull/)\n' +
       '• 🐙 **GitHub**: [RYNIXULL](https://github.com/RYNIXULL)\n\n' +
       'Silakan hubungi salah satu kontak di atas, Rayhan akan sangat senang berkolaborasi denganmu! 💬🤝';
   }

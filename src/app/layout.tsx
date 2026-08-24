@@ -37,8 +37,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "M Rayhan Zulkarnain",
+    url: "https://www.rayhanzulkarnain.dev",
+    jobTitle: "Developer",
+    sameAs: [
+      "https://github.com/RYNIXULL",
+      "https://linkedin.com/in/m-rayhan-zulkarnain"
+    ]
+  };
+
   return (
     <html lang="en" className={`${inter.variable} bg-background text-foreground`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col font-sans antialiased selection:bg-foreground selection:text-background overflow-x-hidden">
         <SmoothScrolling>
           <Loader />

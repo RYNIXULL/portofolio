@@ -65,7 +65,7 @@ export default function Contact() {
             <p>© {new Date().getFullYear()} All Rights Reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a
-                href="https://www.instagram.com/jiwatara/"
+                href="https://www.instagram.com/ryhnxull/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-accent-cyan transition-colors flex items-center gap-2"

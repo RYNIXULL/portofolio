@@ -1,26 +1,28 @@
-# 🌌 RYNIXULL - 3D Interactive Portfolio
+# RYNIXULL - 3D Interactive Portfolio
 
-Selamat datang di repositori website portfolio saya! Ini adalah website portofolio interaktif yang dibangun menggunakan **Next.js**, **React 19**, **Tailwind CSS**, dan teknologi visual interaktif modern.
+Selamat datang di repositori website portfolio saya. Ini adalah website portofolio interaktif yang dibangun menggunakan Next.js, React 19, Tailwind CSS, dan teknologi visual interaktif modern.
 
-Website ini menampilkan karya, keahlian, dan perjalanan saya sebagai mahasiswa **Manajemen Informatika**.
+Website ini menampilkan karya, keahlian, dan perjalanan saya sebagai mahasiswa Manajemen Informatika.
 
-## 🚀 Live Demo
+## Live Demo
 Lihat website portofolio yang sudah live di sini:
-👉 **[rayhan-zulkarnain.vercel.app](https://rayhan-zulkarnain.vercel.app/)** atau **[ryhnixull.vercel.app](https://ryhnixull.vercel.app/)**
+- [rayhanzulkarnain.dev](https://rayhanzulkarnain.dev/)
+- [rayhan-zulkarnain.vercel.app](https://rayhan-zulkarnain.vercel.app/) 
+- [ryhnixull.vercel.app](https://ryhnixull.vercel.app/)
 
 ---
 
-## ✨ Fitur Utama (Key Features)
+## Fitur Utama (Key Features)
 
-* **🌌 3D Andromeda Galaxy & Particle System**: Latar belakang galaksi 3D interaktif yang merespon gerakan kursor (desktop) dan sensor giroskop (mobile).
-* **🤖 Interactive Mascot Chatbot**: Temui maskot interaktif saya yang siap mengobrol langsung menggunakan teknologi AI.
-* **📱 Gyroscope Autocalibration**: Efek giroskop pada tampilan mobile yang telah disempurnakan (pergerakan galaksi dan efek pencahayaan dinamis pada card saat perangkat dimiringkan).
-* **💎 Glassmorphism & Modern UI**: Desain premium dengan efek blur kaca, gradasi warna yang harmonis, dan mikro-animasi (seperti Hover Tilt Card) untuk pengalaman pengguna terbaik.
-* **⚡ Fully Responsive**: Tampilan yang dioptimalkan baik untuk layar desktop beresolusi tinggi maupun perangkat mobile (ponsel/tablet).
+* **3D Andromeda Galaxy & Particle System**: Latar belakang galaksi 3D interaktif yang merespon gerakan kursor (desktop) dan sensor giroskop (mobile).
+* **Interactive Mascot Chatbot**: Temui maskot interaktif saya yang siap mengobrol langsung menggunakan teknologi AI.
+* **Gyroscope Autocalibration**: Efek giroskop pada tampilan mobile yang telah disempurnakan (pergerakan galaksi dan efek pencahayaan dinamis pada card saat perangkat dimiringkan).
+* **Glassmorphism & Modern UI**: Desain premium dengan efek blur kaca, gradasi warna yang harmonis, dan mikro-animasi (seperti Hover Tilt Card) untuk pengalaman pengguna terbaik.
+* **Fully Responsive**: Tampilan yang dioptimalkan baik untuk layar desktop beresolusi tinggi maupun perangkat mobile (ponsel/tablet).
 
 ---
 
-## 🛠️ Teknologi yang Digunakan (Tech Stack)
+## Teknologi yang Digunakan (Tech Stack)
 
 * **Framework & Core**: [Next.js (App Router)](https://nextjs.org/) & [React 19](https://react.dev/)
 * **Bahasa**: [TypeScript](https://www.typescriptlang.org/)
@@ -30,7 +32,7 @@ Lihat website portofolio yang sudah live di sini:
 
 ---
 
-## 💻 Cara Menjalankan Project Secara Lokal
+## Cara Menjalankan Project Secara Lokal
 
 Jika ingin menjalankan project ini di komputer Anda sendiri:
 
@@ -46,7 +48,7 @@ Jika ingin menjalankan project ini di komputer Anda sendiri:
    ```
 
 3. **Konfigurasi Environment Variables**:
-   Buat file `.env.local` di root folder dan tambahkan API Key Anda:
+   Buat file `.env.local` di root folder dan tambahkan konfigurasi sesuai `.env.example`:
    ```env
    GEMINI_API_KEY=your_gemini_api_key_here
    ```
@@ -59,6 +61,6 @@ Jika ingin menjalankan project ini di komputer Anda sendiri:
 
 ---
 
-## 📄 Lisensi
+## Lisensi
 
-Project ini dibuat oleh **Rayhan Zulkarnain** (RYNIXULL). Feel free to explore and fork!
+Project ini dibuat oleh **Rayhan Zulkarnain** (RYNIXULL).

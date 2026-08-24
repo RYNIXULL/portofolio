@@ -25,17 +25,27 @@
 *.pem
 
 # debug
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# env files (strict security rules)
+.env
+.env.*
+!.env.example
 
 # vercel
 .vercel
 
+# IDEs & System Files
+.vscode/
+.idea/
+Thumbs.db
+.cache/
+.vite/
+.turbo/
 # local scratch / test files
 /src/faster.js
 /src/faster2.js
