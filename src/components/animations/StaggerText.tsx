@@ -11,7 +11,7 @@ interface StaggerTextProps {
   once?: boolean;
 }
 
-export default function StaggerText({ text, className, delay = 0, once = true }: StaggerTextProps) {
+export default function StaggerText({ text, className, delay = 0, once = false }: StaggerTextProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once, margin: "-10% 0px" });
 

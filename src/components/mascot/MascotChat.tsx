@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
-import { X, Send } from 'lucide-react'
+import { X, Send, Code2, FolderGit2, Mail, Award } from 'lucide-react'
 import { askMascot, ChatMessage } from '@/lib/ai'
 import { MascotSound } from './mascotSound'
 import styles from './MascotChat.module.css'
@@ -15,10 +15,10 @@ interface MascotChatProps {
 }
 
 const SUGGESTIONS = [
-  { label: 'Skills 💻', query: 'Apa saja keahlian Rayhan?' },
-  { label: 'Projects 🚀', query: 'Proyek apa saja yang sudah dibuat?' },
-  { label: 'Contact ✉️', query: 'Bagaimana cara menghubungi Rayhan?' },
-  { label: 'Certificates 🏆', query: 'Sertifikat apa saja yang dimiliki?' },
+  { label: 'Skills', icon: Code2, query: 'Apa saja keahlian Rayhan?' },
+  { label: 'Projects', icon: FolderGit2, query: 'Proyek apa saja yang sudah dibuat?' },
+  { label: 'Contact', icon: Mail, query: 'Bagaimana cara menghubungi Rayhan?' },
+  { label: 'Certificates', icon: Award, query: 'Sertifikat apa saja yang dimiliki?' },
 ]
 
 export const MascotChat: React.FC<MascotChatProps> = ({
@@ -31,7 +31,7 @@ export const MascotChat: React.FC<MascotChatProps> = ({
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       sender: 'bot',
-      text: 'Halo! Saya **Jean**, asisten AI portofolio **M. Rayhan Zulkarnain**. Saya bisa membantu menjawab pertanyaanmu seputar keterampilan, proyek, sertifikasi, atau cara menghubungi Rayhan. Ada yang ingin kamu ketahui? 🤖✨',
+      text: 'Halo! Saya **Jean**, asisten AI portofolio **M. Rayhan Zulkarnain**. Saya bisa membantu menjawab pertanyaanmu seputar keterampilan, proyek, sertifikasi, atau cara menghubungi Rayhan. Ada yang ingin kamu ketahui?',
       timestamp: new Date(),
     },
   ])
@@ -239,16 +239,20 @@ export const MascotChat: React.FC<MascotChatProps> = ({
 
       {/* Quick Suggestions Chips */}
       <div className={styles.suggestions}>
-        {SUGGESTIONS.map((sug, index) => (
-          <button
-            key={index}
-            onClick={() => handleSend(sug.query)}
-            disabled={isThinking}
-            className={styles.chip}
-          >
-            {sug.label}
-          </button>
-        ))}
+        {SUGGESTIONS.map((sug, index) => {
+          const Icon = sug.icon
+          return (
+            <button
+              key={index}
+              onClick={() => handleSend(sug.query)}
+              disabled={isThinking}
+              className={`${styles.chip} flex items-center gap-1.5`}
+            >
+              <Icon size={13} className="text-accent-cyan" />
+              <span>{sug.label}</span>
+            </button>
+          )
+        })}
       </div>
 
       {/* Form Input */}

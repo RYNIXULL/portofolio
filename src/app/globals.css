@@ -18,7 +18,8 @@
   --color-surface: var(--surface);
   --color-surface-hover: var(--surface-hover);
   --color-border: var(--border);
-  --font-sans: var(--font-inter), sans-serif;
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 html.lenis, html.lenis body {
@@ -195,3 +196,36 @@ body {
   100% { transform: translateY(-100vh); }
 }
 
+
+
+/* ─── UI/UX Pro Max Accessibility & Interaction Standards ─── */
+
+/* Accessible Focus States */
+:focus-visible {
+  outline: 2px solid var(--accent-cyan) !important;
+  outline-offset: 3px !important;
+  border-radius: 6px;
+}
+
+/* Touch Target Minimum (44x44px for touch interfaces) */
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* WCAG Reduced Motion Protection */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .stars, .stars::after, .galaxy-aurora, .exp-blob {
+    animation: none !important;
+    display: none !important;
+  }
+}

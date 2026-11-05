@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScrolling from "@/components/animations/SmoothScroll";
 import Loader from "@/components/ui/Loader";
@@ -12,6 +12,13 @@ import GalaxyBackground from "@/components/3d/GalaxyBackground";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -50,7 +57,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${inter.variable} bg-background text-foreground`}>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} bg-background text-foreground`}>
       <head>
         <script
           type="application/ld+json"
@@ -58,6 +65,13 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased selection:bg-foreground selection:text-background overflow-x-hidden">
+        {/* WCAG Skip-to-content Link for Keyboard Navigation */}
+        <a
+          href="#about"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999] focus:px-4 focus:py-2.5 focus:bg-accent-cyan focus:text-black focus:font-semibold focus:text-xs focus:rounded-full focus:shadow-2xl focus:outline-none"
+        >
+          Skip to main content
+        </a>
         <SmoothScrolling>
           <Loader />
           <CustomCursor />

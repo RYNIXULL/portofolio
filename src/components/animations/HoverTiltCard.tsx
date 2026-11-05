@@ -160,7 +160,7 @@ export default function HoverTiltCard({ children, className, tiltAmount = 15 }: 
           transform: "translateZ(50px)",
           transformStyle: "preserve-3d",
         }}
-        className="w-full h-full relative"
+        className="w-full h-full relative rounded-[inherit] overflow-hidden"
       >
         {children}
         <motion.div

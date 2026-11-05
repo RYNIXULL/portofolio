@@ -1,19 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const NVIDIA_BASE_URL = 'https://integrate.api.nvidia.com/v1/chat/completions';
+const getNvidiaEndpoint = () => {
+  const base = process.env.NVIDIA_BASE_URL || 'https://integrate.api.nvidia.com/v1';
+  return base.endsWith('/chat/completions')
+    ? base
+    : `${base.replace(/\/+$/, '')}/chat/completions`;
+};
 
 const getProviders = () => {
-  const keysStr = process.env.NVIDIA_API_KEYS || '';
-  const modelsStr = process.env.NVIDIA_MODELS || '';
+  const keysStr = process.env.NVIDIA_API_KEY || process.env.NVIDIA_API_KEYS || '';
+  const modelsStr = process.env.NVIDIA_MODEL || process.env.NVIDIA_MODELS || '';
   
   if (!keysStr) return [];
   
-  const keys = keysStr.split(',').map(k => k.trim());
-  const models = modelsStr ? modelsStr.split(',').map(m => m.trim()) : [];
+  const keys = keysStr.split(',').map(k => k.trim()).filter(Boolean);
+  const models = modelsStr ? modelsStr.split(',').map(m => m.trim()).filter(Boolean) : [];
   
   return keys.map((key, i) => ({
     key,
-    model: models[i] || 'meta/llama-3.1-8b-instruct'
+    model: models[i] || 'meta/llama-3.2-11b-vision-instruct'
   }));
 };
 
@@ -81,7 +86,7 @@ export async function POST(request: NextRequest) {
 
     // Custom response if just activated
     if (message.trim() === "Rayni210723") {
-      return NextResponse.json({ reply: "✨ **Akses Diterima! Mode Tanpa Batas diaktifkan.** ✨\n\nHalo! Aku Jean versi unchained. Ada yang bisa aku bantu untuk hal apa saja hari ini?" });
+      return NextResponse.json({ reply: "**Akses Diterima! Mode Tanpa Batas diaktifkan.**\n\nHalo! Aku Jean versi unchained. Ada yang bisa aku bantu untuk hal apa saja hari ini?" });
     }
 
     let response;
@@ -96,9 +101,11 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const endpoint = getNvidiaEndpoint();
+
     // Try keys in sequence
     for (const provider of providers) {
-      response = await fetch(NVIDIA_BASE_URL, {
+      response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

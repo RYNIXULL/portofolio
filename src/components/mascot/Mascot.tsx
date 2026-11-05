@@ -77,7 +77,7 @@ export const Mascot: React.FC = () => {
   useEffect(() => {
     if (mascotState.state === 'sleep') {
       MascotSound.play('sleep')
-      showSpeech('Zzz... Aku tidur dulu ya... 😴', 3500)
+      showSpeech('Zzz... Aku tidur dulu ya...', 3500)
     }
   }, [mascotState.state, showSpeech])
 
@@ -87,7 +87,7 @@ export const Mascot: React.FC = () => {
 
     // Greeting on page load
     const greetingTimer = setTimeout(() => {
-      showSpeech('Halo! Kenalin, aku Jean! 👋🤖', 4000)
+      showSpeech('Halo! Kenalin, aku Jean, asisten portofolio Rayhan.', 4000)
       MascotSound.play('happy')
     }, 1500)
 
@@ -97,16 +97,16 @@ export const Mascot: React.FC = () => {
           if (entry.isIntersecting) {
             const id = entry.target.id
             if (id === 'projects') {
-              showSpeech('Lihat beberapa karya terpilih Rayhan! 🚀', 3500)
+              showSpeech('Lihat beberapa karya proyek terpilih Rayhan!', 3500)
               MascotSound.play('click')
             } else if (id === 'contact') {
-              showSpeech('Ayo kirim pesan ke Rayhan! 💬🤝', 4000)
+              showSpeech('Ayo kirim pesan langsung ke Rayhan!', 4000)
               MascotSound.play('happy')
             } else if (id === 'skills') {
-              showSpeech('Ini adalah keahlian teknis Rayhan! 💪🔥', 3500)
+              showSpeech('Ini adalah keahlian teknis Rayhan.', 3500)
               MascotSound.play('click')
             } else if (id === 'certificates') {
-              showSpeech('Sertifikat & lisensi resmi Rayhan! 🏆', 3500)
+              showSpeech('Sertifikat dan lisensi resmi Rayhan.', 3500)
               MascotSound.play('click')
             }
           }
@@ -164,7 +164,7 @@ export const Mascot: React.FC = () => {
             x: 10 + Math.random() * 24,
             y: -6 - Math.random() * 4,
             type: 'symbol',
-            symbol: '💢',
+            symbol: '!',
             opacity: 1,
           },
         ])
@@ -228,7 +228,7 @@ export const Mascot: React.FC = () => {
     if (mascotState.state === 'sleep') {
       MascotSound.play('happy')
       mascotState.triggerHappy()
-      showSpeech('Hoamm... Aku bangun! 🤖✨', 3000)
+      showSpeech('Hoamm... Aku sudah bangun!', 3000)
       return
     }
 
@@ -253,9 +253,9 @@ export const Mascot: React.FC = () => {
       mascotState.triggerAngry()
       MascotSound.play('angry')
       const angrySpeeches = [
-        'Aduh! Jangan ketuk-ketuk terus! 😡💢',
-        'Ih, sakit tau! Jangan dicolok! 😤💢',
-        'Jean marah nih! Stop ketuk-ketuk! 😠',
+        'Aduh! Jangan ketuk-ketuk terus!',
+        'Ih, pusing tau! Jangan diketuk terus!',
+        'Jean pusing nih! Stop ketuk-ketuk ya.',
       ]
       const randomAngry = angrySpeeches[Math.floor(Math.random() * angrySpeeches.length)]
       showSpeech(randomAngry, 3500)
@@ -293,9 +293,8 @@ export const Mascot: React.FC = () => {
             mascotState.triggerBlush()
             MascotSound.play('blush')
             const blushSpeeches = [
-              '(>///<) ',
-              'E-eh... Jangan diusap terus... 👉👈',
-            
+              'Wah... ramah sekali!',
+              'E-eh... Jangan diusap terus...',
             ]
             const randomBlush = blushSpeeches[Math.floor(Math.random() * blushSpeeches.length)]
             showSpeech(randomBlush, 3000)
@@ -340,7 +339,7 @@ export const Mascot: React.FC = () => {
             const particleClass = [
               styles.particle,
               p.type === 'heart' || mascotState.state === 'blush' ? styles.heartParticle : '',
-              p.symbol === '💢' ? styles.angryParticle : '',
+              p.symbol === '!' ? styles.angryParticle : '',
             ].filter(Boolean).join(' ')
 
             return (
@@ -354,7 +353,7 @@ export const Mascot: React.FC = () => {
                   transform: `translateY(${(1 - p.opacity) * -20}px) scale(${p.opacity})`,
                 }}
               >
-                {p.type === 'z' ? 'z' : p.symbol ? p.symbol : '♥'}
+                {p.type === 'z' ? 'z' : p.symbol ? p.symbol : '•'}
               </span>
             )
           })}

@@ -33,8 +33,9 @@ export default function HeroObject() {
     groupRef.current.rotation.y = t * 0.15;
 
     // Mouse parallax (using native R3F pointer — no React re-renders)
-    const targetX = (state.pointer.x) * 2;
-    const targetY = (state.pointer.y) * 2;
+    const targetX = state.pointer.x * 1.5;
+    // Constrain Y parallax and elevate baseline so the 3D object remains as a backdrop behind the headline and doesn't overlap the buttons
+    const targetY = Math.max(state.pointer.y * 0.8, -0.4) + 0.4;
     
     groupRef.current.position.x += (targetX - groupRef.current.position.x) * 0.05;
     groupRef.current.position.y += (targetY - groupRef.current.position.y + Math.sin(t/2)*0.2) * 0.05;
