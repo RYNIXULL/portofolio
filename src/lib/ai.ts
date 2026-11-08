@@ -115,6 +115,7 @@ export async function askMascot(question: string, history: ChatMessage[] = []): 
     matches(cleanQuestion, ['kontak', 'contact', 'wa', 'whatsapp', 'nomor', 'email', 'hubungi', 'instagram', 'linkedin', 'github', 'sosmed', 'sosial media', 'ig', 'tele'])
   ) {
     return 'Kamu bisa langsung menghubungi atau terhubung dengan Rayhan melalui saluran berikut:\n\n' +
+      '- **Email**: [rayhanzulkarnain29@gmail.com](mailto:rayhanzulkarnain29@gmail.com)\n' +
       '- **WhatsApp**: [Say Hello (0813-6907-9309)](https://wa.me/6281369079309?text=Halo!%20Saya%20tertarik%20untuk%20berkolaborasi%20dengan%20kamu.)\n' +
       '- **LinkedIn**: [LinkedIn Rayhan](https://www.linkedin.com/in/ryhnixull)\n' +
       '- **Instagram**: [@ryhnxull](https://www.instagram.com/ryhnxull/)\n' +

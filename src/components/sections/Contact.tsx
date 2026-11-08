@@ -5,7 +5,7 @@ import SectionReveal from "@/components/animations/SectionReveal";
 import { MagicButton } from "@/components/ui/MagicButton";
 import Signature from "@/Signature";
 import HoverTiltCard from "@/components/animations/HoverTiltCard";
-import { MessageSquare, ArrowUpRight } from "lucide-react";
+import { MessageSquare, ArrowUpRight, Mail } from "lucide-react";
 
 const WA_NUMBER = "6281369079309";
 const WA_MESSAGE = encodeURIComponent("Halo! Saya tertarik untuk berkolaborasi dengan kamu.");
@@ -16,7 +16,7 @@ export default function Contact() {
       <div className="container mx-auto px-6 max-w-4xl text-center">
         {/* ─── Ultra-Glassmorphism Invitation Card ─── */}
         <HoverTiltCard tiltAmount={4} className="rounded-3xl">
-          <div className="rounded-3xl p-8 sm:p-14 md:p-16 mb-16 border border-white/20 transition-all duration-500 bg-white/[0.04] hover:bg-white/[0.07] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.25)] hover:border-accent-cyan/40 hover:shadow-[0_25px_70px_rgba(0,240,255,0.15)] relative overflow-hidden">
+          <div className="rounded-3xl p-8 sm:p-14 md:p-16 mb-16 border border-white/20 transition-all duration-500 bg-white/[0.04] hover:bg-white/[0.07] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.25)] hover:border-accent-cyan/40 hover:shadow-[0_25px_70px_rgba(226,232,240,0.15)] relative overflow-hidden">
             {/* Ambient Lighting Gradients */}
             <div className="absolute -top-24 -left-24 w-72 h-72 bg-accent-cyan/15 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-accent-purple/15 rounded-full blur-3xl pointer-events-none" />
@@ -66,6 +66,14 @@ export default function Contact() {
           <div className="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-foreground/50">
             <p>© {new Date().getFullYear()} M. Rayhan Zulkarnain. All Rights Reserved.</p>
             <div className="flex flex-wrap justify-center gap-3">
+              <a
+                href="mailto:rayhanzulkarnain29@gmail.com"
+                className="px-4 py-2.5 min-h-[44px] rounded-full bg-white/[0.04] hover:bg-white/[0.10] active:scale-95 border border-white/15 hover:border-accent-cyan/40 hover:text-accent-cyan transition-all flex items-center gap-2 cursor-pointer"
+                aria-label="Kirim email ke rayhanzulkarnain29@gmail.com"
+              >
+                <Mail size={16} />
+                <span>Email</span>
+              </a>
               <a
                 href="https://www.instagram.com/ryhnxull/"
                 target="_blank"

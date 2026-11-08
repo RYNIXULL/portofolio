@@ -60,15 +60,15 @@ export default function HeroObject() {
       {/* Wireframe overlay for tech/futuristic feel */}
       <Icosahedron ref={wireframeRef} args={[2.2, 2]} scale={1.25}>
         <meshBasicMaterial
-          color="#00f0ff"
+          color="#F8FAFC"
           wireframe
           transparent
-          opacity={0.15}
+          opacity={0.18}
         />
       </Icosahedron>
       
       {/* Inner glow */}
-      <pointLight color="#8a2be2" intensity={2} distance={5} />
+      <pointLight color="#94A3B8" intensity={2} distance={5} />
     </group>
   );
 }

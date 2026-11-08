@@ -106,33 +106,21 @@ const certificates: Certificate[] = [
 
 function getIssuerBadge(issuer: string) {
   if (issuer === "ITechno Cup") {
-    return {
-      color: "text-purple-400 bg-purple-500/10 border-purple-500/25",
-    };
+    return { dotColor: "bg-purple-400" };
   }
   if (issuer.includes("IBM") || issuer.includes("Hacktiv8")) {
-    return {
-      color: "text-indigo-400 bg-indigo-500/10 border-indigo-500/25",
-    };
+    return { dotColor: "bg-indigo-400" };
   }
   if (issuer === "Google") {
-    return {
-      color: "text-blue-400 bg-blue-500/10 border-blue-500/20",
-    };
+    return { dotColor: "bg-blue-400" };
   }
   if (issuer === "AWS") {
-    return {
-      color: "text-amber-400 bg-amber-500/10 border-amber-500/20",
-    };
+    return { dotColor: "bg-amber-400" };
   }
   if (issuer === "Dicoding") {
-    return {
-      color: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
-    };
+    return { dotColor: "bg-cyan-400" };
   }
-  return {
-    color: "text-sky-400 bg-sky-500/10 border-sky-500/20",
-  };
+  return { dotColor: "bg-sky-400" };
 }
 
 export default function Certificates() {
@@ -175,7 +163,8 @@ export default function Certificates() {
                           <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-white/[0.05] border border-white/15 group-hover:scale-105 group-hover:bg-accent-cyan/15 group-hover:border-accent-cyan/30 transition-all text-accent-cyan">
                             <Award size={20} />
                           </div>
-                          <span className={`text-xs font-mono font-medium px-2.5 py-1 rounded-full border ${badge.color}`}>
+                          <span className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-2.5 py-1 rounded-full border border-white/15 bg-white/[0.04] text-foreground/80">
+                            <span className={`w-1.5 h-1.5 rounded-full ${badge.dotColor}`} />
                             {cert.issuer}
                           </span>
                         </div>

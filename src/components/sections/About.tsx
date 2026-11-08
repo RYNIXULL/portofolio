@@ -107,11 +107,11 @@ export default function About() {
                   <p className="text-xs text-foreground/75 uppercase tracking-widest font-mono font-medium">Years Experience</p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] backdrop-blur-xl border border-white/15 hover:border-accent-purple/40 transition-all duration-300 shadow-lg group">
-                  <div className="w-10 h-10 rounded-xl bg-accent-purple/10 border border-accent-purple/20 flex items-center justify-center text-accent-purple mb-4 group-hover:scale-105 transition-transform">
+                <div className="p-5 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] backdrop-blur-xl border border-white/15 hover:border-accent-cyan/40 transition-all duration-300 shadow-lg group">
+                  <div className="w-10 h-10 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center text-accent-glow mb-4 group-hover:scale-105 transition-transform">
                     <Code2 size={18} />
                   </div>
-                  <h4 className="text-3xl font-bold text-foreground leading-tight mb-1">5+</h4>
+                  <h4 className="text-3xl font-bold text-foreground leading-tight mb-1">6+</h4>
                   <p className="text-xs text-foreground/75 uppercase tracking-widest font-mono font-medium">Flagship Projects</p>
                 </div>
 
@@ -119,7 +119,7 @@ export default function About() {
                   <div className="w-10 h-10 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center text-accent-cyan mb-4 group-hover:scale-105 transition-transform">
                     <Award size={18} />
                   </div>
-                  <h4 className="text-3xl font-bold text-foreground leading-tight mb-1">10+</h4>
+                  <h4 className="text-3xl font-bold text-foreground leading-tight mb-1">12+</h4>
                   <p className="text-xs text-foreground/75 uppercase tracking-widest font-mono font-medium">Certifications</p>
                 </div>
               </div>

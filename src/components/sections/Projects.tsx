@@ -120,7 +120,7 @@ const projects: Project[] = [
       "Audit Log Aktivitas Kasir & Operator",
       "Status Service Server Lokal SQLite & WebSocket",
     ],
-    color: "from-accent-cyan/25 to-emerald-500/10",
+    color: "from-accent-cyan/25 to-accent-purple/10",
     accentColor: "accent-cyan",
     github: "https://github.com/RYNIXULL/kasir-pintar",
     description:
@@ -219,7 +219,7 @@ const projects: Project[] = [
       "Koreksi Presensi Real-Time & Penyesuaian Status",
       "Verifikasi Pengajuan Izin Siswa oleh Wali Kelas",
     ],
-    color: "from-accent-purple/30 to-indigo-500/15",
+    color: "from-accent-purple/30 to-accent-glow/15",
     accentColor: "accent-purple",
     description:
       "Sistem aplikasi absensi dan jadwal presensi berbasis Android dengan mesin Anti-Cheat tingkat tinggi untuk SMKN 1 Pakuan Ratu. Menggabungkan verifikasi lokasi geofencing GPS server-side algoritma Haversine, validasi wajah CameraX live selfie (tanpa akses galeri), dan pengikatan ID perangkat keras (Hardware Device Binding).",
@@ -264,7 +264,7 @@ const projects: Project[] = [
       "Portal Dosen: Pengelolaan Jadwal Mengajar",
       "Validasi Kehadiran Mahasiswa oleh Dosen",
     ],
-    color: "from-accent-cyan/30 to-purple-500/15",
+    color: "from-accent-cyan/30 to-accent-purple/15",
     accentColor: "accent-cyan",
     github: "https://github.com/RYNIXULL/mykuliah",
     description:
@@ -299,7 +299,7 @@ const projects: Project[] = [
       "Modul Spin Wheel Interaktif Acak Soal / Peserta",
       "Dashboard Panitia & Pengawasan Anti-Cheat Ujian",
     ],
-    color: "from-accent-purple/30 to-pink-500/15",
+    color: "from-accent-purple/30 to-accent-cyan/15",
     accentColor: "accent-purple",
     description:
       "COMMBAT adalah sebuah platform kuis dan ujian interaktif berbasis gamifikasi yang dirancang secara khusus untuk memfasilitasi perlombaan cerdas cermat secara real-time. Sistem ini dibangun menggunakan arsitektur Client-Server modern dengan memanfaatkan teknologi WebSocket untuk sinkronisasi data instan antara panel administrator dan layar peserta. Skalabilitas dan keandalan sistem ini telah dibuktikan melalui pengujian dan penggunaan secara langsung pada ajang perlombaan tingkat Sekolah Menengah Atas (SMA) se-Provinsi Lampung.",
@@ -375,7 +375,7 @@ function DevicePhoneFrame({
 
   return (
     <div
-      className={`relative ${heightClass} ${radiusClass} ${borderClass} border-[#252932] bg-[#0c0d11] shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_25px_rgba(0,240,255,0.12)] overflow-hidden flex flex-col flex-shrink-0 ${className}`}
+      className={`relative ${heightClass} ${radiusClass} ${borderClass} border-[#252932] bg-[#0c0d11] shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_25px_rgba(226,232,240,0.12)] overflow-hidden flex flex-col flex-shrink-0 ${className}`}
     >
       {/* Side button accents */}
       <div className="absolute -left-[5px] top-12 w-[3px] h-6 bg-[#252932] rounded-l" />
@@ -431,7 +431,7 @@ function DeviceDesktopFrame({
 
   return (
     <div
-      className={`relative ${containerClass} border border-white/20 bg-[#121419] shadow-[0_22px_55px_rgba(0,0,0,0.85),0_0_35px_rgba(0,240,255,0.12)] overflow-hidden flex flex-col flex-shrink-0 ${className}`}
+      className={`relative ${containerClass} border border-white/20 bg-[#121419] shadow-[0_22px_55px_rgba(0,0,0,0.85),0_0_35px_rgba(226,232,240,0.12)] overflow-hidden flex flex-col flex-shrink-0 ${className}`}
     >
       {/* Title Bar */}
       <div className="h-8 md:h-9 bg-[#1a1c23] border-b border-white/10 px-3.5 flex items-center justify-between select-none flex-shrink-0 z-20">
@@ -638,7 +638,7 @@ export default function Projects() {
                 onClick={() => handleProjectClick(project)}
                 className={`w-full h-full relative group rounded-3xl overflow-hidden cursor-pointer border transition-all duration-500 shadow-2xl flex flex-col justify-between bg-[#0e1015]/90 backdrop-blur-2xl ${
                   isCurrent
-                    ? "border-accent-cyan/40 shadow-[0_15px_45px_rgba(0,240,255,0.18)]"
+                    ? "border-accent-cyan/40 shadow-[0_15px_45px_rgba(226,232,240,0.18)]"
                     : "border-white/15 hover:border-white/35"
                 }`}
               >
@@ -788,7 +788,7 @@ export default function Projects() {
             <span
               className={`transition-all duration-300 rounded-full block ${
                 i === activeCardIndex
-                  ? "w-8 h-2 bg-accent-cyan shadow-[0_0_10px_rgba(0,240,255,0.7)]"
+                  ? "w-8 h-2 bg-accent-cyan shadow-[0_0_10px_rgba(226,232,240,0.7)]"
                   : "w-2.5 h-2.5 bg-white/30 hover:bg-white/60"
               }`}
             />
@@ -949,7 +949,7 @@ export default function Projects() {
                               aria-label={`Lihat screenshot ${i + 1}`}
                               className={`relative flex-shrink-0 w-24 sm:w-32 md:w-36 aspect-[16/10] rounded-xl overflow-hidden border transition-all duration-300 cursor-pointer ${
                                 isActive
-                                  ? "border-accent-cyan ring-2 ring-accent-cyan/60 scale-105 shadow-[0_0_15px_rgba(0,240,255,0.4)]"
+                                  ? "border-accent-cyan ring-2 ring-accent-cyan/60 scale-105 shadow-[0_0_15px_rgba(226,232,240,0.4)]"
                                   : "border-white/15 opacity-60 hover:opacity-100"
                               }`}
                             >
@@ -1059,7 +1059,7 @@ export default function Projects() {
                             href={selectedProject.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full py-3.5 px-6 bg-accent-cyan text-black font-semibold rounded-2xl flex items-center justify-center hover:bg-accent-cyan/90 transition-all shadow-[0_0_25px_rgba(0,240,255,0.4)] active:scale-95 cursor-pointer text-sm"
+                            className="w-full py-3.5 px-6 bg-accent-cyan text-black font-semibold rounded-2xl flex items-center justify-center hover:bg-accent-cyan/90 transition-all shadow-[0_0_25px_rgba(226,232,240,0.4)] active:scale-95 cursor-pointer text-sm"
                           >
                             <span>Buka Live Demo Website</span>
                             <ExternalLink size={16} className="ml-2" />

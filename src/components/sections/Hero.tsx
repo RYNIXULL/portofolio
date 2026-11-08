@@ -23,8 +23,8 @@ export default function Hero() {
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
           
           <FadeIn delay={2.3} direction="down">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest bg-white/[0.06] backdrop-blur-xl border border-white/15 text-accent-cyan mb-8 shadow-sm">
-              <Compass className="w-3.5 h-3.5 animate-spin-slow" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest bg-black/65 backdrop-blur-xl border border-accent-cyan/30 text-accent-glow mb-8 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+              <Compass className="w-3.5 h-3.5 text-accent-cyan animate-spin-slow" />
               <span>Creative Engineer & Developer</span>
             </div>
           </FadeIn>

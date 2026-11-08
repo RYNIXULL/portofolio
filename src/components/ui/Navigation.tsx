@@ -69,7 +69,7 @@ export default function Navigation() {
       {/* ─── Top Scroll Progress Line ─── */}
       <motion.div
         style={{ scaleX }}
-        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-accent-cyan via-purple-500 to-accent-cyan origin-left z-[100] shadow-[0_0_12px_rgba(0,240,255,0.7)]"
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-accent-cyan via-accent-purple to-accent-glow origin-left z-[100] shadow-[0_0_12px_rgba(226,232,240,0.7)]"
       />
 
       {/* ─── Floating Glassmorphic Header ─── */}
@@ -115,7 +115,7 @@ export default function Navigation() {
                   {isActive && (
                     <motion.div
                       layoutId="active-nav-indicator"
-                      className="absolute inset-0 rounded-full bg-accent-cyan/15 border border-accent-cyan/40 shadow-[0_0_16px_rgba(0,240,255,0.25)]"
+                      className="absolute inset-0 rounded-full bg-accent-cyan/15 border border-accent-cyan/40 shadow-[0_0_16px_rgba(226,232,240,0.25)]"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -130,7 +130,7 @@ export default function Navigation() {
             <a
               href="/#contact"
               aria-label="Hubungi saya langsung di bagian kontak"
-              className="hidden lg:inline-flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-full text-xs font-medium bg-accent-cyan/15 hover:bg-accent-cyan/25 active:scale-95 text-accent-cyan border border-accent-cyan/40 backdrop-blur-xl transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.18)] cursor-pointer"
+              className="hidden lg:inline-flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-full text-xs font-medium bg-accent-cyan/15 hover:bg-accent-cyan/25 active:scale-95 text-accent-cyan border border-accent-cyan/40 backdrop-blur-xl transition-all duration-300 shadow-[0_0_20px_rgba(226,232,240,0.18)] cursor-pointer"
             >
               <span>Say Hello</span>
               <ArrowUpRight className="w-3.5 h-3.5" />

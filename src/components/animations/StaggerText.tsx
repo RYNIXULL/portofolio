@@ -44,14 +44,17 @@ export default function StaggerText({ text, className, delay = 0, once = false }
   return (
     <motion.h2
       ref={ref}
+      aria-label={text}
       className={cn("flex flex-wrap gap-[0.25em]", className)}
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
     >
       {words.map((word, idx) => (
-        <span key={idx} className="overflow-hidden inline-flex">
-          <motion.span variants={childVariants}>{word}</motion.span>
+        <span key={idx} aria-hidden="true" className="overflow-hidden inline-flex">
+          <motion.span variants={childVariants}>
+            {idx < words.length - 1 ? `${word} ` : word}
+          </motion.span>
         </span>
       ))}
     </motion.h2>

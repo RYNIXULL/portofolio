@@ -27,15 +27,32 @@ export const metadata: Metadata = {
     default: "M Rayhan Zulkarnain | Developer",
     template: "%s | M Rayhan Zulkarnain"
   },
-  description: "Portfolio of M Rayhan Zulkarnain, a Developer specializing in frontend, fullstack, and highly interactive web experiences.",
-  keywords: ["M Rayhan Zulkarnain", "Rayhan Zulkarnain", "Developer", "Frontend Engineer", "Fullstack Developer", "Portfolio", "Indonesia", "Web Developer"],
+  description: "Portfolio of M Rayhan Zulkarnain, a Developer specializing in multi-platform software engineering (Android, Windows Desktop, and Web).",
+  keywords: ["M Rayhan Zulkarnain", "Rayhan Zulkarnain", "Developer", "Frontend Engineer", "Fullstack Developer", "Android Developer", "Portfolio", "Indonesia", "Web Developer"],
+  alternates: {
+    canonical: "https://www.rayhanzulkarnain.dev",
+  },
   openGraph: {
     title: "M Rayhan Zulkarnain | Developer",
-    description: "Portfolio of M Rayhan Zulkarnain, a Developer specializing in frontend, fullstack, and highly interactive web experiences.",
+    description: "Portfolio of M Rayhan Zulkarnain, a Developer specializing in multi-platform software engineering (Android, Windows Desktop, and Web).",
     url: 'https://www.rayhanzulkarnain.dev',
     siteName: 'M Rayhan Zulkarnain Portfolio',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'M. Rayhan Zulkarnain - Multi-Platform Software Engineer Portfolio',
+      },
+    ],
     locale: 'id_ID',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'M Rayhan Zulkarnain | Developer',
+    description: 'Portfolio of M Rayhan Zulkarnain, a Developer specializing in multi-platform software engineering (Android, Windows Desktop, and Web).',
+    images: ['/og-image.png'],
   },
 };
 
@@ -49,10 +66,11 @@ export default function RootLayout({
     "@type": "Person",
     name: "M Rayhan Zulkarnain",
     url: "https://www.rayhanzulkarnain.dev",
+    email: "mailto:rayhanzulkarnain29@gmail.com",
     jobTitle: "Developer",
     sameAs: [
       "https://github.com/RYNIXULL",
-      "https://linkedin.com/in/m-rayhan-zulkarnain"
+      "https://www.linkedin.com/in/ryhnixull"
     ]
   };
 

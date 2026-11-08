@@ -15,8 +15,8 @@ export default function Scene() {
       >
         <Suspense fallback={null}>
           <ambientLight intensity={0.2} />
-          <directionalLight position={[10, 10, 5]} intensity={1} color="#ffffff" />
-          <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#8a2be2" />
+          <directionalLight position={[10, 10, 5]} intensity={1} color="#F8FAFC" />
+          <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#64748B" />
           
           <Environment preset="city" />
           

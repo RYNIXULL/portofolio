@@ -69,7 +69,7 @@ export default function Experience() {
             <FadeIn key={idx} delay={0.1 * idx} direction={idx % 2 === 0 ? "left" : "right"}>
               <div className="relative group">
                 {/* Glowing Timeline Node */}
-                <div className="absolute -left-[31px] md:-left-[47px] top-6 w-4 h-4 rounded-full bg-background border-2 border-accent-cyan/60 group-hover:border-accent-cyan group-hover:scale-125 transition-all shadow-[0_0_12px_rgba(0,240,255,0.6)] flex items-center justify-center">
+                <div className="absolute -left-[31px] md:-left-[47px] top-6 w-4 h-4 rounded-full bg-background border-2 border-accent-cyan/60 group-hover:border-accent-cyan group-hover:scale-125 transition-all shadow-[0_0_12px_rgba(226,232,240,0.6)] flex items-center justify-center">
                   <div className="w-1.5 h-1.5 rounded-full bg-accent-cyan" />
                 </div>
 

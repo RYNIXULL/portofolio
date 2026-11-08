@@ -48,59 +48,90 @@ function useGalaxyGeometry() {
     const bgCol = [];
     const bgSize = [];
 
-    // Spiral arm stars
+    // Aurora Gradient Palette Stops (Pink Aurora <-> Violet Bridge <-> Cosmic Blue Aurora)
+    const cPinkBright = new THREE.Color("#FF4DA6"); // Vibrant Pink Aurora
+    const cPinkSoft = new THREE.Color("#FF94CE");   // Luminous Rose-Pink Aurora
+    const cVioletMid = new THREE.Color("#A855F7");  // Iridescent Violet Bridge
+    const cBlueCyan = new THREE.Color("#38BDF8");   // Cosmic Cyan-Blue Aurora
+    const cBlueDeep = new THREE.Color("#3B82F6");   // Electric Blue Aurora
+
+    // Spiral arm stars with smooth spiral-wave Blue <-> Pink Aurora gradation
     for (let a = 0; a < 2; a++) {
-      for (let i = 0; i < 2500; i++) { // Increased count since GPU is fast!
+      for (let i = 0; i < 2500; i++) {
         const t = rr(0.03, 1);
         const p = spiralPoint(rng, a, t, galaxyR, 0.65);
         starsPos.push(p.x, p.y, p.z);
-        
-        const bl = rng() > 0.55;
+
         const color = new THREE.Color();
-        if (bl) {
-          color.setRGB(rr(0.7, 0.8), rr(0.8, 0.9), rr(0.9, 1.0)); // Blueish
+        // Continuous wave along spiral arm + radial distance so Blue & Pink Aurora
+        // smoothly grade into each other across both inner and outer spiral curves
+        const wave = 0.5 + 0.5 * Math.sin(a * Math.PI + t * 5.2 + (rng() - 0.5) * 0.9);
+        if (wave < 0.5) {
+          const localT = wave * 2.0; // 0 -> 1
+          color.lerpColors(rng() > 0.4 ? cBlueCyan : cBlueDeep, cVioletMid, localT);
         } else {
-          color.setRGB(rr(0.9, 1.0), rr(0.8, 0.9), rr(0.7, 0.8)); // Warm
+          const localT = (wave - 0.5) * 2.0; // 0 -> 1
+          color.lerpColors(cVioletMid, rng() > 0.35 ? cPinkBright : cPinkSoft, localT);
         }
-        starsCol.push(color.r, color.g, color.b);
-        starsSize.push(rr(0.1, 0.4));
+
+        // Add subtle brightness variation
+        color.multiplyScalar(rr(0.9, 1.15));
+        starsCol.push(
+          Math.min(1, color.r),
+          Math.min(1, color.g),
+          Math.min(1, color.b)
+        );
+        starsSize.push(rr(0.1, 0.42));
       }
     }
 
-    // Bulge / halo stars
+    // Bulge / halo stars (Warm Pink-Rose & Blue-Ice Aurora blend)
     for (let i = 0; i < 800; i++) {
       const ang = rng() * Math.PI * 2;
-      const rad = rng() * galaxyR * 0.8;
+      const u = rng();
+      const rad = u * galaxyR * 0.8;
       const x = Math.cos(ang) * rad * (1 + (rng() - 0.5) * 0.28);
       const z = Math.sin(ang) * rad * 0.32;
       const y = (rng() - 0.5) * galaxyR * 0.09;
-      
+
       starsPos.push(x, y, z);
-      starsCol.push(1.0, 0.9, 0.7); // Bright warm core
+      const angleWave = 0.5 + 0.5 * Math.cos(ang + u * 2.5);
+      const haloColor = new THREE.Color().lerpColors(
+        new THREE.Color(1.0, 0.58, 0.86), // Pink Aurora
+        new THREE.Color(0.35, 0.78, 1.0), // Blue Aurora
+        angleWave
+      );
+      starsCol.push(haloColor.r, haloColor.g, haloColor.b);
       starsSize.push(rr(0.15, 0.5));
     }
 
-    // Dust clouds
+    // Dust clouds (Rich Pink Aurora & Cosmic Blue Nebula gradation along spiral curves)
     for (let a = 0; a < 2; a++) {
-      for (let i = 0; i < 150; i++) {
-        const t = rr(0.1, 0.92);
+      for (let i = 0; i < 160; i++) {
+        const t = rr(0.08, 0.94);
         const p = spiralPoint(rng, a, t, galaxyR, 0.45);
         dustPos.push(p.x, p.y, p.z);
-        
-        const h = rng() > 0.5 ? 260 : 230; // Purple/Blue hues
-        const color = new THREE.Color().setHSL(h / 360, 0.55, 0.58);
+
+        const dustWave = 0.5 + 0.5 * Math.sin(a * Math.PI + t * 5.2 + (rng() - 0.5) * 0.6);
+        // Interpolate hue between Blue Aurora (202 deg) and Pink Aurora (330 deg)
+        const hue = 202 + dustWave * 128;
+        const color = new THREE.Color().setHSL(hue / 360, 0.88, 0.58);
         dustCol.push(color.r, color.g, color.b);
-        dustSize.push(rr(1.5, 4.0));
+        dustSize.push(rr(1.6, 4.2));
       }
     }
 
-    // Background stars
+    // Background stars (Subtle Blue & Pink tinted cosmic starfield)
     for (let i = 0; i < 1500; i++) {
       const x = (rng() - 0.5) * 60;
       const y = (rng() - 0.5) * 60;
       const z = (rng() - 0.5) * 60 - 20; // Push back slightly
       bgPos.push(x, y, z);
-      bgCol.push(0.8, 0.8, 1.0);
+      if (rng() > 0.5) {
+        bgCol.push(0.78, 0.88, 1.0); // Soft Ice-Blue star
+      } else {
+        bgCol.push(1.0, 0.82, 0.94); // Soft Pink-Aurora star
+      }
       bgSize.push(rr(0.05, 0.15));
     }
 
@@ -285,13 +316,13 @@ function GalaxyParticles() {
         <shaderMaterial {...materialArgs} />
       </points>
 
-      {/* Core Glow (Simple Sprite) */}
+      {/* Core Glow (Pink-to-Blue Aurora Sprite) */}
       <mesh position={[0, 0, 0]}>
-        <planeGeometry args={[18, 18]} />
+        <planeGeometry args={[20, 20]} />
         <meshBasicMaterial 
-          color={new THREE.Color(1.0, 0.9, 0.7)}
+          color={new THREE.Color(1.0, 1.0, 1.0)}
           transparent 
-          opacity={0.15}
+          opacity={0.22}
           depthWrite={false}
           blending={THREE.AdditiveBlending}
           map={createGlowTexture()}
@@ -301,16 +332,17 @@ function GalaxyParticles() {
   );
 }
 
-// Helper to generate a soft gradient texture for the core glow
+// Helper to generate a soft Pink-to-Blue Aurora gradient texture for the core glow
 function createGlowTexture() {
   const canvas = document.createElement("canvas");
   canvas.width = 256;
   canvas.height = 256;
   const ctx = canvas.getContext("2d")!;
   const gradient = ctx.createRadialGradient(128, 128, 0, 128, 128, 128);
-  gradient.addColorStop(0, "rgba(255,255,255,1)");
-  gradient.addColorStop(0.3, "rgba(255,255,255,0.5)");
-  gradient.addColorStop(1, "rgba(255,255,255,0)");
+  gradient.addColorStop(0, "rgba(255, 195, 235, 1)");
+  gradient.addColorStop(0.32, "rgba(255, 90, 175, 0.65)");
+  gradient.addColorStop(0.68, "rgba(56, 189, 248, 0.35)");
+  gradient.addColorStop(1, "rgba(56, 189, 248, 0)");
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, 256, 256);
   const texture = new THREE.CanvasTexture(canvas);
@@ -320,7 +352,7 @@ function createGlowTexture() {
 // ─── Main Component ───────────────────────────────────────────────────────────
 export default function AndromedaGalaxy() {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none bg-[#000308]">
+    <div className="fixed inset-0 z-0 pointer-events-none bg-[#050505]">
       <Canvas
         camera={{ position: [0, 8, 12], fov: 60 }}
         dpr={[1, 1.5]}

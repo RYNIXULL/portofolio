@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M. Rayhan Zulkarnain - Curriculum Vitae</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #111827;
+      background: #ffffff;
+      font-size: 9pt;
+      line-height: 1.38;
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 12mm 14mm;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    @media print {
+      body {
+        padding: 0;
+        max-width: none;
+      }
+    }
+    a {
+      color: #111827;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .header {
+      border-bottom: 2px solid #111827;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+    h1 {
+      font-size: 20pt;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #090d16;
+      line-height: 1.1;
+    }
+    .role-title {
+      font-size: 9.4pt;
+      font-weight: 600;
+      color: #374151;
+      margin-top: 3px;
+    }
+    .contact-bar {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.5pt;
+      color: #374151;
+    }
+    .contact-bar span.sep {
+      color: #9ca3af;
+    }
+    .section {
+      margin-bottom: 9px;
+    }
+    .section-title {
+      font-size: 9pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #090d16;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 2px;
+      margin-bottom: 5px;
+    }
+    .summary {
+      color: #1f2937;
+      font-size: 8.6pt;
+      line-height: 1.4;
+      text-align: justify;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3px;
+      font-size: 8.4pt;
+    }
+    .skill-row {
+      display: flex;
+      gap: 6px;
+    }
+    .skill-label {
+      font-weight: 700;
+      color: #090d16;
+      min-width: 158px;
+      flex-shrink: 0;
+    }
+    .skill-items {
+      color: #1f2937;
+    }
+    .item {
+      margin-bottom: 6px;
+      page-break-inside: avoid;
+    }
+    .item:last-child {
+      margin-bottom: 0;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .item-title {
+      font-size: 8.9pt;
+      font-weight: 700;
+      color: #090d16;
+    }
+    .item-subtitle {
+      font-weight: 500;
+      color: #4b5563;
+      font-size: 8.3pt;
+    }
+    .item-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.5pt;
+      color: #4b5563;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .tech-line {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.4pt;
+      color: #4b5563;
+      margin-top: 1px;
+      margin-bottom: 2px;
+    }
+    ul.bullets {
+      padding-left: 14px;
+      margin-top: 1.5px;
+    }
+    ul.bullets li {
+      font-size: 8.3pt;
+      color: #1f2937;
+      margin-bottom: 1.5px;
+      line-height: 1.35;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 14px;
+    }
+    .cert-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .cert-list li {
+      font-size: 8.1pt;
+      color: #1f2937;
+      margin-bottom: 2.5px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .cert-name {
+      font-weight: 600;
+      color: #111827;
+    }
+    .cert-issuer {
+      color: #4b5563;
+      font-weight: 400;
+    }
+    .cert-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.3pt;
+      color: #6b7280;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <div>
+        <h1>M. Rayhan Zulkarnain</h1>
+        <div class="role-title">Multi-Platform Software Engineer | Android Mobile, Windows Desktop &amp; Fullstack Web</div>
+      </div>
+    </div>
+    <div class="contact-bar">
+      <span>Bandar Lampung, Indonesia</span>
+      <span class="sep">|</span>
+      <a href="mailto:rayhanzulkarnain29@gmail.com">rayhanzulkarnain29@gmail.com</a>
+      <span class="sep">|</span>
+      <a href="https://wa.me/6281369079309">+62 813-6907-9309</a>
+      <span class="sep">|</span>
+      <a href="https://www.rayhanzulkarnain.dev">rayhanzulkarnain.dev</a>
+      <span class="sep">|</span>
+      <a href="https://www.linkedin.com/in/ryhnixull">linkedin.com/in/ryhnixull</a>
+      <span class="sep">|</span>
+      <a href="https://github.com/RYNIXULL">github.com/RYNIXULL</a>
+    </div>
+  </header>
+
+  <!-- PROFESSIONAL SUMMARY -->
+  <section class="section">
+    <h2 class="section-title">Professional Summary</h2>
+    <p class="summary">
+      Informatics Management student at Politeknik Negeri Lampung focusing on multi-platform software engineering, spanning Android mobile applications, Windows desktop systems, and the modern web ecosystem. Specializes in architecting comprehensive solutions that bridge intuitive interface design with solid software architecture, from distributed Point of Sale (POS) and production workflow integration, mobile attendance tracking with high data integrity protection (hardware device binding, live visual verification, and precision geolocation validation), to interactive platforms powered by real-time data synchronization.
+    </p>
+  </section>
+
+  <!-- TECHNICAL SKILLS -->
+  <section class="section">
+    <h2 class="section-title">Technical Arsenal</h2>
+    <div class="skills-grid">
+      <div class="skill-row">
+        <span class="skill-label">Mobile &amp; Desktop Systems:</span>
+        <span class="skill-items">Flutter, Dart, Android Native (Kotlin), CameraX API, GPS Geofencing, Electron.js, Thermal Print ESC/POS (Bluetooth &amp; LAN), Offline-First Sync (SQLite 3 / sqflite)</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Web &amp; Fullstack Engineering:</span>
+        <span class="skill-items">React.js, Next.js, TypeScript, JavaScript (ES6+), Node.js, Express.js, Socket.IO (WebSocket), Tailwind CSS, Three.js / WebGL, Framer Motion, GSAP</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Database, Security &amp; Tooling:</span>
+        <span class="skill-items">SQLite 3, Prisma ORM, TiDB Serverless (MySQL), Argon2id, Stateless JWT, Hardware Device Binding, Anti-Cheat Engine, Git, Figma, UI/UX Design</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED ENGINEERING PROJECTS -->
+  <section class="section">
+    <h2 class="section-title">Selected Engineering Projects</h2>
+
+    <div class="item">
+      <div class="item-header">
+        <div>
+          <span class="item-title">SmartPrint POS &amp; Production Management Suite</span>
+          <span class="item-subtitle"> | Desktop Server &amp; Android Mobile POS (Kasir Rimbun)</span>
+        </div>
+        <span class="item-meta">Windows x64 &amp; Android</span>
+      </div>
+      <div class="tech-line">Stack: Electron.js, React, TypeScript, Flutter, Dart, SQLite 3, Prisma ORM, Express.js, Socket.IO, Bluetooth/LAN ESC/POS</div>
+      <ul class="bullets">
+        <li>Engineered an industrial offline-first Point of Sale (POS) and interactive Kanban production board for a digital printing business, where the Windows desktop app acts simultaneously as the main control station and embedded local LAN server.</li>
+        <li>Built the companion Flutter Android cashier &amp; operator app featuring zero-config QR code LAN pairing, two-way real-time Socket.IO sync, automated square-meter (<em>P &times; L</em>) pricing calculation, background deadline alarms, and Bluetooth thermal receipt printing.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <div>
+          <span class="item-title">Presensi SMKN 1 Pakuan Ratu</span>
+          <span class="item-subtitle"> | Anti-Cheat Mobile Attendance &amp; Web Admin Platform</span>
+        </div>
+        <span class="item-meta">Android Native &amp; Web</span>
+      </div>
+      <div class="tech-line">Stack: Android Native (Kotlin), CameraX, GPS Geolocation, Node.js, TypeScript, Express.js, Prisma ORM, Argon2id, JWT, React.js</div>
+      <ul class="bullets">
+        <li>Architected a multi-role mobile attendance and academic scheduling platform with a high-integrity anti-cheat security engine for students, teachers, and school operators.</li>
+        <li>Implemented server-side Haversine formula GPS geofencing (100m school radius), mandatory live front-camera selfie capture via CameraX (blocking gallery uploads and mock cameras), and 1-to-1 Hardware Device ID Binding.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <div>
+          <span class="item-title">COMMBAT (Real-Time Gamified Quiz &amp; Buzzer Platform)</span>
+          <span class="item-subtitle"> | Provincial Competition Engine</span>
+        </div>
+        <span class="item-meta">Fullstack Web &amp; WebSocket</span>
+      </div>
+      <div class="tech-line">Stack: React.js, Vite, Tailwind CSS, Node.js, Express.js, Socket.IO, TiDB Serverless, Vercel, Cloudflare Tunnels</div>
+      <ul class="bullets">
+        <li>Developed a low-latency, full-duplex WebSocket quiz and digital buzzer system validated live in high-school academic competitions across Lampung Province, with millisecond-precision buzzer arbitration, live leaderboards, and active fullscreen anti-cheat monitoring.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <div>
+          <span class="item-title">MyKuliah Academic Suite</span>
+          <span class="item-subtitle"> | Cross-Platform Schedule, Attendance &amp; Task Manager</span>
+        </div>
+        <span class="item-meta">Android &amp; Windows Desktop</span>
+      </div>
+      <div class="tech-line">Stack: Flutter, Dart, Riverpod, Clean Soft Neumorphic 3D UI, Multi-Role Portal (Student &amp; Lecturer)</div>
+      <ul class="bullets">
+        <li>Built a cross-platform academic management app featuring automatic active-day routing, live "Now" class indicators, lecturer attendance validation, and assignment deadline countdowns.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WORK EXPERIENCE & EDUCATION + CERTIFICATIONS -->
+  <div class="two-col">
+    <div>
+      <section class="section">
+        <h2 class="section-title">Work Experience</h2>
+
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">Kaesang Cendawan</span>
+            <span class="item-meta">2023 &ndash; Present</span>
+          </div>
+          <div class="item-subtitle">Software Developer</div>
+          <ul class="bullets">
+            <li>Developing and maintaining custom e-commerce web applications, ensuring high performance, responsive layouts, and a seamless checkout experience.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">Freelance</span>
+            <span class="item-meta">2025 &ndash; Present</span>
+          </div>
+          <div class="item-subtitle">Fullstack, Mobile &amp; Creative Developer</div>
+          <ul class="bullets">
+            <li>Architecting cross-platform Android, Windows desktop, and React/Next.js web applications with real-time synchronization and interactive 3D/WebGL visuals.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">Rimbun Digital Utama</span>
+            <span class="item-meta">2022 &ndash; Present</span>
+          </div>
+          <div class="item-subtitle">Graphic &amp; UI Designer</div>
+          <ul class="bullets">
+            <li>Creating digital assets, brand visual identities, marketing collateral, and production-ready UI layouts for client projects.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" style="margin-bottom: 0;">
+        <h2 class="section-title">Education</h2>
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">Politeknik Negeri Lampung</span>
+            <span class="item-meta">Bandar Lampung</span>
+          </div>
+          <div class="item-subtitle">Diploma in Informatics Management (Manajemen Informatika)</div>
+        </div>
+      </section>
+    </div>
+
+    <div>
+      <section class="section" style="margin-bottom: 0;">
+        <h2 class="section-title">Licenses &amp; Certifications</h2>
+        <ul class="cert-list">
+          <li>
+            <span><span class="cert-name">International UI/UX Design Competition</span> <span class="cert-issuer">| ITechno Cup 2026</span></span>
+            <span class="cert-date">Sep 2026</span>
+          </li>
+          <li>
+            <span><span class="cert-name">Data - AI Agent for Data Analysis</span> <span class="cert-issuer">| IBM &times; Hacktiv8</span></span>
+            <span class="cert-date">Oct 2026</span>
+          </li>
+          <li>
+            <span><span class="cert-name">Google Certificate (Foundations)</span> <span class="cert-issuer">| Google</span></span>
+            <span class="cert-date">Jul 2026</span>
+          </li>
+          <li>
+            <span><span class="cert-name">Dasar Cloud &amp; Gen AI di AWS</span> <span class="cert-issuer">| AWS</span></span>
+            <span class="cert-date">2025</span>
+          </li>
+          <li>
+            <span><span class="cert-name">Back-End Pemula dengan JavaScript</span> <span class="cert-issuer">| Dicoding</span></span>
+            <span class="cert-date">Dec 2025</span>
+          </li>
+          <li>
+            <span><span class="cert-name">Dasar Pemrograman JavaScript</span> <span class="cert-issuer">| Dicoding</span></span>
+            <span class="cert-date">Dec 2025</span>
+          </li>
+          <li>
+            <span><span class="cert-name">Belajar Dasar AI</span> <span class="cert-issuer">| Dicoding</span></span>
+            <span class="cert-date">Dec 2025</span>
+          </li>
+          <li>
+            <span><span class="cert-name">Code Generations &amp; Optimization</span> <span class="cert-issuer">| HP LIFE</span></span>
+            <span class="cert-date">Nov 2025</span>
+          </li>
+          <li>
+            <span><span class="cert-name">Data Science &amp; Analytics</span> <span class="cert-issuer">| HP LIFE</span></span>
+            <span class="cert-date">2026</span>
+          </li>
+          <li>
+            <span><span class="cert-name">AI for Beginners, CX &amp; Business Email</span> <span class="cert-issuer">| HP LIFE</span></span>
+            <span class="cert-date">2026</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+</body>
+</html>
+

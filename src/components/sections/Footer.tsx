@@ -45,7 +45,7 @@ export default function Footer() {
                 <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
               </svg>
             </a>
-            <a href="mailto:rayhanzulkarnain@example.com" className="text-foreground/60 hover:text-accent-cyan transition-colors" aria-label="Email">
+            <a href="mailto:rayhanzulkarnain29@gmail.com" className="text-foreground/60 hover:text-accent-cyan transition-colors" aria-label="Email">
               <Mail size={20} />
             </a>
           </FadeIn>

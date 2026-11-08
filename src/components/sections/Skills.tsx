@@ -23,33 +23,33 @@ const skills = [
   {
     name: "Mobile & Android",
     icon: Smartphone,
-    accent: "text-emerald-400",
-    border: "group-hover:border-emerald-500/40",
-    bg: "from-emerald-500/10",
+    accent: "text-accent-cyan",
+    border: "group-hover:border-accent-cyan/40",
+    bg: "from-accent-cyan/10",
     items: ["Flutter & Dart", "Android (Kotlin)", "CameraX API", "GPS Geofencing"],
   },
   {
     name: "Windows Desktop",
     icon: Monitor,
-    accent: "text-sky-400",
-    border: "group-hover:border-sky-500/40",
-    bg: "from-sky-500/10",
+    accent: "text-accent-glow",
+    border: "group-hover:border-accent-cyan/40",
+    bg: "from-accent-cyan/10",
     items: ["Electron.js", "SQLite & Prisma", "Thermal Print POS", "Offline-First Sync"],
   },
   {
     name: "Web & Fullstack",
     icon: Globe,
-    accent: "text-purple-400",
-    border: "group-hover:border-purple-500/40",
-    bg: "from-purple-500/10",
+    accent: "text-accent-cyan",
+    border: "group-hover:border-accent-cyan/40",
+    bg: "from-accent-purple/10",
     items: ["React & Next.js", "TypeScript", "Tailwind CSS", "Socket.IO & Node"],
   },
   {
     name: "Security & Systems",
     icon: ShieldCheck,
-    accent: "text-amber-400",
-    border: "group-hover:border-amber-500/40",
-    bg: "from-amber-500/10",
+    accent: "text-accent-glow",
+    border: "group-hover:border-accent-cyan/40",
+    bg: "from-accent-purple/10",
     items: ["Device Binding", "Argon2id & JWT", "Anti-Cheat Engine", "System Design"],
   },
 ];
@@ -59,27 +59,27 @@ function SkillIcon({ name }: { name: string }) {
 
   if (cleanName === "flutter & dart") {
     return (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#54c5f8] flex-shrink-0" fill="currentColor">
+      <svg viewBox="0 0 24 24" className="w-5 h-5 text-accent-cyan flex-shrink-0" fill="currentColor">
         <path d="M14.314 0L2.3 12 6 15.7 21.686 0h-7.372zM14.314 11.23l-6.17 6.17 3.7 3.7 2.47-2.47 6.17-6.17-6.17-1.23zM8.144 17.4l6.17 6.17h7.372l-9.87-9.87-3.672 3.7z" />
       </svg>
     );
   }
   if (cleanName === "android (kotlin)") {
     return (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#3ddc84] flex-shrink-0" fill="currentColor">
+      <svg viewBox="0 0 24 24" className="w-5 h-5 text-accent-cyan flex-shrink-0" fill="currentColor">
         <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-1.0002s.4482-1.0002.9993-1.0002c.5516 0 .9997.4486.9997 1.0002s-.4481 1.0002-.9997 1.0002m-11.046 0c-.5511 0-.9993-.4486-.9993-1.0002s.4482-1.0002.9993-1.0002c.5516 0 .9997.4486.9997 1.0002s-.4481 1.0002-.9997 1.0002m11.4045-6.02l1.9973-3.4592a.416.416 0 0 0-.1521-.5676.416.416 0 0 0-.5676.1521l-2.0223 3.503C15.5902 8.4116 13.8533 8 12 8s-3.5902.4116-5.1367 1.4497L4.841 5.9467a.416.416 0 0 0-.5677-.1521.4157.4157 0 0 0-.1521.5676l1.9973 3.4592C2.6889 11.6667 1 15.006 1 18.8412h22c0-3.8352-1.6889-7.1745-5.1185-9.5198"/>
       </svg>
     );
   }
   if (cleanName === "camerax api") {
-    return <Camera size={18} className="text-emerald-400 flex-shrink-0" />;
+    return <Camera size={18} className="text-accent-glow flex-shrink-0" />;
   }
   if (cleanName === "gps geofencing") {
-    return <MapPin size={18} className="text-emerald-300 flex-shrink-0" />;
+    return <MapPin size={18} className="text-accent-cyan flex-shrink-0" />;
   }
   if (cleanName === "electron.js") {
     return (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#9feaf9] flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg viewBox="0 0 24 24" className="w-5 h-5 text-accent-glow flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5">
         <circle cx="12" cy="12" r="2.5" fill="currentColor" />
         <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" />
         <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
@@ -88,17 +88,17 @@ function SkillIcon({ name }: { name: string }) {
     );
   }
   if (cleanName === "sqlite & prisma") {
-    return <Database size={18} className="text-sky-300 flex-shrink-0" />;
+    return <Database size={18} className="text-accent-cyan flex-shrink-0" />;
   }
   if (cleanName === "thermal print pos") {
-    return <Printer size={18} className="text-sky-400 flex-shrink-0" />;
+    return <Printer size={18} className="text-accent-glow flex-shrink-0" />;
   }
   if (cleanName === "offline-first sync") {
-    return <RefreshCw size={18} className="text-cyan-300 flex-shrink-0 animate-spin-slow" />;
+    return <RefreshCw size={18} className="text-accent-cyan flex-shrink-0 animate-spin-slow" />;
   }
   if (cleanName === "react & next.js") {
     return (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 text-sky-400 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg viewBox="0 0 24 24" className="w-5 h-5 text-accent-cyan flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5">
         <g transform="translate(12, 12)">
           <ellipse rx="10" ry="3.8" transform="rotate(0)" />
           <ellipse rx="10" ry="3.8" transform="rotate(60)" />
@@ -110,41 +110,41 @@ function SkillIcon({ name }: { name: string }) {
   }
   if (cleanName === "typescript") {
     return (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#3178c6] flex-shrink-0" fill="currentColor">
+      <svg viewBox="0 0 24 24" className="w-5 h-5 text-accent-glow flex-shrink-0" fill="currentColor">
         <rect x="2" y="2" width="20" height="20" rx="4" />
-        <text x="14" y="18" fill="white" fontSize="9" fontWeight="bold" fontFamily="sans-serif" textAnchor="middle">TS</text>
+        <text x="14" y="18" fill="#050505" fontSize="9" fontWeight="bold" fontFamily="sans-serif" textAnchor="middle">TS</text>
       </svg>
     );
   }
   if (cleanName === "tailwind css") {
     return (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#38bdf8] flex-shrink-0" fill="currentColor">
+      <svg viewBox="0 0 24 24" className="w-5 h-5 text-accent-cyan flex-shrink-0" fill="currentColor">
         <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 14.887 11.6 18.001 11.6c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.335 5.782 15.114 4.8 12.001 4.8zm-6 6.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C7.666 17.418 8.887 18.4 12.001 18.4c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.335 12.582 9.114 11.6 6.001 11.6z"/>
       </svg>
     );
   }
   if (cleanName === "socket.io & node") {
-    return <Server size={18} className="text-purple-300 flex-shrink-0" />;
+    return <Server size={18} className="text-accent-glow flex-shrink-0" />;
   }
   if (cleanName === "device binding") {
-    return <Lock size={18} className="text-amber-400 flex-shrink-0" />;
+    return <Lock size={18} className="text-accent-cyan flex-shrink-0" />;
   }
   if (cleanName === "argon2id & jwt") {
     return (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 text-amber-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg viewBox="0 0 24 24" className="w-5 h-5 text-accent-glow flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5">
         <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
         <path d="M7 11V7a5 5 0 0 1 10 0v4" />
       </svg>
     );
   }
   if (cleanName === "anti-cheat engine") {
-    return <ShieldCheck size={18} className="text-amber-400 flex-shrink-0" />;
+    return <ShieldCheck size={18} className="text-accent-cyan flex-shrink-0" />;
   }
   if (cleanName === "system design") {
-    return <Network size={18} className="text-amber-300 flex-shrink-0" />;
+    return <Network size={18} className="text-accent-glow flex-shrink-0" />;
   }
 
-  return <span className="w-1.5 h-1.5 rounded-full bg-accent-purple/60 flex-shrink-0" />;
+  return <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan/60 flex-shrink-0" />;
 }
 
 export default function Skills() {

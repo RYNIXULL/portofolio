@@ -10,7 +10,7 @@ export default function Signature() {
   return (
     <div 
       ref={ref} 
-      className="w-full max-w-2xl mx-auto text-left relative mt-12 p-8 md:p-12 rounded-3xl border border-white/15 bg-[var(--card-bg)] transition-all duration-500 hover:border-accent-cyan/30 hover:bg-[var(--card-hover-bg)] hover:shadow-[0_10px_40px_rgba(0,240,255,0.1)]"
+      className="w-full max-w-2xl mx-auto text-left relative mt-12 p-8 md:p-12 rounded-3xl border border-white/15 bg-[var(--card-bg)] transition-all duration-500 hover:border-accent-cyan/30 hover:bg-[var(--card-hover-bg)] hover:shadow-[0_10px_40px_rgba(226,232,240,0.1)]"
       style={{
         "--card-bg": "rgba(255, 255, 255, 0.05)",
         "--card-hover-bg": "rgba(255, 255, 255, 0.08)",

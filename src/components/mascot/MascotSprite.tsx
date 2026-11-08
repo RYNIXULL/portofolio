@@ -44,11 +44,11 @@ export const MascotSprite: React.FC<MascotSpriteProps> = ({
     '#05050f'
 
   const screenGlow =
-    state === 'happy' ? '#00ffaa' :
-    state === 'sleep' ? '#5c5cff' :
+    state === 'happy' ? '#F8FAFC' :
+    state === 'sleep' ? '#64748B' :
     state === 'blush' ? '#ff4785' : // Vibrant neon hot pink
     state === 'angry' ? '#ff2a2a' : // Vibrant neon red
-    '#00f0ff'
+    '#E2E8F0'
 
   // Eye rendering
   const renderEyes = () => {
