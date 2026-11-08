@@ -78,10 +78,10 @@ export async function askMascot(question: string, history: ChatMessage[] = []): 
     matches(cleanQuestion, ['project', 'proyek', 'portofolio', 'karya', 'buat apa', 'bikin apa', 'hasil', 'work', 'featured', 'pos', 'kasir', 'presensi', 'commbat', 'mykuliah'])
   ) {
     return 'Berikut adalah 4 proyek rekayasa utama (**Flagship Engineering Projects**) yang dibangun oleh Rayhan:\n\n' +
-      '1. **SmartPrint POS & Production Management Suite (Kasir Rimbun)**: Sistem POS *offline-first* & Kanban produksi percetakan digital berbasis **Electron.js (Windows Desktop Server)** dan **Flutter (Android Mobile)** dengan sinkronisasi LAN *Socket.IO* dua arah dan cetak struk *thermal* Bluetooth/LAN.\n' +
-      '2. **Presensi SMKN 1 Pakuan Ratu**: Sistem presensi mobile **Android Native (Kotlin + CameraX)** & dashboard web admin dengan *Anti-Cheat Security Engine* (Geofencing Haversine 100m, kamera depan langsung tanpa galeri, dan *1-to-1 Hardware Device ID Binding*).\n' +
-      '3. **COMMBAT**: Platform kuis interaktif & *digital buzzer* *real-time* berbasis **WebSocket (Socket.IO)** dan **TiDB Serverless** yang telah teruji di kompetisi tingkat Provinsi Lampung.\n' +
-      '4. **MyKuliah Academic Suite**: Aplikasi manajemen jadwal kuliah, presensi, dan tugas *cross-platform* (**Android & Windows Desktop**) berbasis **Flutter & Riverpod**.';
+      '1. **SmartPrint POS & Production Management Suite (Kasir Rimbun)**: Sistem POS offline-first & Kanban produksi percetakan digital berbasis **Electron.js (Windows Desktop Server)** dan **Flutter (Android Mobile)** dengan sinkronisasi LAN Socket.IO dua arah dan cetak struk thermal Bluetooth/LAN.\n' +
+      '2. **Presensi SMKN 1 Pakuan Ratu**: Sistem presensi mobile **Android Native (Kotlin + CameraX)** & dashboard web admin dengan Anti-Cheat Security Engine (Geofencing Haversine 100m, kamera depan langsung tanpa galeri, dan 1-to-1 Hardware Device ID Binding).\n' +
+      '3. **COMMBAT**: Platform kuis interaktif & digital buzzer real-time berbasis **WebSocket (Socket.IO)** dan **TiDB Serverless** yang telah teruji di kompetisi tingkat Provinsi Lampung.\n' +
+      '4. **MyKuliah Academic Suite**: Aplikasi manajemen jadwal kuliah, presensi, dan tugas cross-platform (**Android & Windows Desktop**) berbasis **Flutter & Riverpod**.';
   }
 
   // 5. EXPERIENCE / JOURNEY
@@ -130,9 +130,9 @@ export async function askMascot(question: string, history: ChatMessage[] = []): 
 
   // Default response
   return 'Saya mengerti pertanyaanmu! Namun, sebagai Jean, saya diprogram khusus untuk menjawab pertanyaan seputar **M. Rayhan Zulkarnain** (seperti keahlian teknis, proyek unggulan, sertifikasi, dan kontaknya).\n\nCobalah tanyakan sesuatu seperti:\n' +
-    '• *"Proyek apa saja yang sudah dibuat Rayhan?"*\n' +
-    '• *"Apa saja keahlian teknis Rayhan?"*\n' +
-    '• *"Bagaimana cara menghubungi Rayhan?"*';
+    '• "Proyek apa saja yang sudah dibuat Rayhan?"\n' +
+    '• "Apa saja keahlian teknis Rayhan?"\n' +
+    '• "Bagaimana cara menghubungi Rayhan?"';
 }
 
 /**

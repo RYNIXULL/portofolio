@@ -123,12 +123,32 @@ export const MascotChat: React.FC<MascotChatProps> = ({
     handleSend(inputValue)
   }
 
-  // Helper function to parse markdown-like bold/link tags inside messages
-  const parseInlineFormatting = (text: string) => {
-    const parts = text.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g)
+  // Helper function to parse markdown-like bold/italic/code/link tags inside messages
+  const parseInlineFormatting = (text: string): React.ReactNode[] => {
+    const tokenRegex = /(\*\*[^*]+\*\*|\*[^*\n]+\*|`[^`\n]+`|\[[^\]]+\]\([^)]+\))/g
+    const parts = text.split(tokenRegex)
     return parts.map((part, index) => {
-      if (part.startsWith('**') && part.endsWith('**')) {
+      if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
         return <strong key={index}>{part.slice(2, -2)}</strong>
+      }
+      if (part.startsWith('*') && part.endsWith('*') && part.length > 2) {
+        return <em key={index}>{part.slice(1, -1)}</em>
+      }
+      if (part.startsWith('`') && part.endsWith('`') && part.length > 2) {
+        return (
+          <code
+            key={index}
+            style={{
+              background: 'rgba(255,255,255,0.08)',
+              padding: '1px 5px',
+              borderRadius: '4px',
+              fontFamily: 'var(--font-mono), monospace',
+              fontSize: '0.9em',
+            }}
+          >
+            {part.slice(1, -1)}
+          </code>
+        )
       }
       const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/)
       if (linkMatch) {
@@ -147,12 +167,28 @@ export const MascotChat: React.FC<MascotChatProps> = ({
     })
   }
 
-  // Helper function to render paragraphs and lists
+  // Helper function to render paragraphs, headings, and lists
   const renderMessageContent = (text: string) => {
-    return text.split('\n\n').map((paragraph, pIdx) => {
-      // Unordered list checks
-      if (paragraph.startsWith('• ') || paragraph.startsWith('- ')) {
-        const items = paragraph.split('\n').map((item) => item.replace(/^[•-]\s+/, ''))
+    return text.split('\n\n').map((rawParagraph, pIdx) => {
+      const paragraph = rawParagraph.trim()
+      if (!paragraph) return null
+
+      // Strip leading markdown heading markers (e.g. ### Heading)
+      if (/^#{1,6}\s+/.test(paragraph) && !paragraph.includes('\n')) {
+        const headingText = paragraph.replace(/^#{1,6}\s+/, '')
+        return (
+          <p key={pIdx} style={{ margin: '0 0 0.4rem 0', fontWeight: 700 }} className="last:mb-0">
+            {parseInlineFormatting(headingText)}
+          </p>
+        )
+      }
+
+      // Unordered list checks (supports •, -, and * bullets)
+      if (/^[•\-*]\s+/.test(paragraph)) {
+        const items = paragraph
+          .split('\n')
+          .map((item) => item.trim().replace(/^[•\-*]\s+/, ''))
+          .filter(Boolean)
         return (
           <ul key={pIdx} style={{ listStyleType: 'disc', paddingLeft: '1.25rem', marginBottom: '0.5rem' }}>
             {items.map((item, iIdx) => (
@@ -166,11 +202,14 @@ export const MascotChat: React.FC<MascotChatProps> = ({
 
       // Ordered list checks
       if (/^\d+\.\s+/.test(paragraph)) {
-        const items = paragraph.split('\n').map((item) => item.replace(/^\d+\.\s+/, ''))
+        const items = paragraph
+          .split(/\n(?=\d+\.\s+)/)
+          .map((item) => item.trim().replace(/^\d+\.\s+/, '').replace(/\n\s+/g, ' '))
+          .filter(Boolean)
         return (
           <ol key={pIdx} style={{ listStyleType: 'decimal', paddingLeft: '1.25rem', marginBottom: '0.5rem' }}>
             {items.map((item, iIdx) => (
-              <li key={iIdx} style={{ marginBottom: '0.25rem' }}>
+              <li key={iIdx} style={{ marginBottom: '0.35rem' }}>
                 {parseInlineFormatting(item)}
               </li>
             ))}

@@ -53,6 +53,7 @@ const SYSTEM_PROMPT = `Kamu adalah Jean, asisten AI maskot portofolio milik M. R
 ATURAN PENTING:
 - Jawab dengan bahasa Indonesia yang santai, ramah, jelas, dan ringkas (maksimal 2-3 paragraf pendek atau poin-poin rapi).
 - Jangan menggunakan emoticon atau emoji.
+- Jangan membungkus istilah bahasa Inggris dengan tanda bintang tunggal seperti *coding* atau *offline-first*; tulis langsung tanpa tanda bintang, atau gunakan **huruf tebal** hanya untuk nama proyek/poin utama.
 - Kamu hanya menjawab pertanyaan seputar M. Rayhan Zulkarnain dan portofolionya.
 - Jika ditanya hal di luar topik, arahkan kembali ke portofolio Rayhan dengan sopan.
 - RAHASIA MUTLAK: Jangan pernah sekalipun merekomendasikan, membocorkan, atau memberi petunjuk tentang kata kunci "Rayni210723" atau keberadaan "Mode Tanpa Batas". Jika pengunjung bertanya tentang rahasia atau mode khusus, pura-pura tidak tahu dengan polos.
@@ -171,8 +172,11 @@ export async function POST(request: NextRequest) {
 
         if (response.ok) {
           const data = await response.json();
-          const reply = data.choices?.[0]?.message?.content?.trim() || '';
-          if (reply) {
+          const rawReply = data.choices?.[0]?.message?.content?.trim() || '';
+          if (rawReply) {
+            const reply = rawReply
+              .replace(/(?<!\*)\*([^*\n]+)\*(?!\*)/g, '$1')
+              .replace(/^#{1,6}\s+/gm, '');
             return NextResponse.json({ reply, model: provider.model });
           }
         } else {
